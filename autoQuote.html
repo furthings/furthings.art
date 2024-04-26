@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./Styles/menu.css"/>
+    <link rel="stylesheet" type="text/css" href="./Styles/autoQuote.css"/>
+    <link rel="icon" type="image/x-icon" href="./Styles/src/favicon.ico">
+    <title>AutoQuote | @furthings</title>
+</head>
+<body>
+    <div id="background"></div>
+    <main>
+        <a class="backButton" href="index.html"><</a>
+        <h1>AUTOQUOTE</h1>
+        <p>
+            Curious to see how much a commission may cost but don't want to do all that math by yourself? Fill out this form and a price estimate will be automatically generated for you. Note: This is a new feature, so if you notice any inconsistencies with the prices listed <a href="priceSheet.html">here</a>, please let me know.
+        </p>
+        <form id="quote_form">
+            <div class="row">
+                <label for="render_quality">Render Quality: </label>
+                <select name="render_quality" id="render_quality">
+                    <option value="Rough">Rough</option>
+                    <option value="Clean">Clean</option>
+                </select>
+            </div>
+            <fieldset id="framing">
+                <div class="row">
+                    <label for="framing_1">Framing:</label>
+                    <select name="framing_1" class="framing_input">
+                        <option value="Extreme Closeup">Extreme Closeup</option>
+                        <option value="Headshot">Headshot</option>
+                        <option value="Bust">Bust</option>
+                        <option value="Halfbody">Halfbody</option>
+                        <option value="Thighup">Thighup</option>
+                        <option value="Fullbody">Fullbody</option>
+                        <option value="Scenic">Scenic</option>
+                    </select>
+                </div>
+            </fieldset>
+            <div class="row">
+                <input type="button" value="+ Add Character" onclick="addCharacter()">
+            </div>
+            <div class="row">
+                <label for="chosen_background">Background: </label>
+                <select name="chosen_background" id="chosen_background">
+                    <option value="Default Background">Default Background</option>
+                    <option value="Abstract Background">Abstract Background</option>
+                    <option value="Simple Scenic Background">Simple Scenic Background</option>
+                    <option value="Complex Scenic Background">Complex Scenic Background</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="shading">Shading: </label>
+                <input type="checkbox" name="shading" id="shading">
+                <label for="no_color">No Color: </label>
+                <input type="checkbox" name="no_color" id="no_color">
+            </div>
+            <div class="row">
+                <label for="props">Props: </label>
+                <input type="number" name="props" id="props" value="0" max="5" min="0">
+            </div>
+            <div class="row">
+                <textarea rows="5" id="details" placeholder="Extra details..."></textarea>
+            </div>
+            <div class="row">
+            <input type="submit" value="Submit">
+            </div>
+        </form>
+        <div id="result">
+        </div>
+        <div id="follow_up">
+        </div>
+        <footer>
+            <p>Contact me: <a href="https://linktr.ee/furthings" target="_blank">Linktr.ee</a> or <a href="mailto: furthingsart@gmail.com">Email</a></p>
+            <p>Background photo by <a href="https://unsplash.com/photos/a-view-of-a-mountain-range-with-trees-in-the-foreground-oCmOCNGJM1g" target="_blank">Maciek Sulkowski</a></p>
+        </footer>
+    </main>
+    <script src="autoQuote.js"></script>
+</body>
+</html>
