@@ -1,0 +1,194 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-image: linear-gradient(339deg, rgba(255,64,64,0.5) 0%, rgba(255,193,108,0.5) 100%), url("./src/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+
+main {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: calc(50vw - (620px / 2));
+    padding: 20px 0 20px 0;
+    background-color: var(--white);
+    width: 620px;
+    overflow: hidden;
+    border-radius: 20px;
+    font-family: Poppins;
+}
+
+main .backButton {
+    position: absolute;
+    left: calc(50vw - (620px / 2) + 24px);
+    top: 48px;
+    font-size: 48pt;
+    text-decoration: none;
+    color: var(--orange);
+    line-height: 1;
+    transition-duration: .3s;
+}
+
+main .backButton:hover {
+    color: var(--dark-brown);
+    scale: 1.2;
+}
+
+main h1 {
+    font-family: Poppins;
+    color: var(--dark-brown);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+main h2:not(main .menuRow h2, main .add-on h2) {
+    color: var(--red);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+main .menuRow {
+    display: grid;
+    width: 90%;
+    margin: 0 5%;
+    align-items: center;
+}
+
+main ._2col {
+    grid-template-columns: 8fr 2fr 2fr;
+}
+
+main ._1col {
+    grid-template-columns: 6fr 4fr;
+}
+
+main .menuRow:not(main .mainProduct) {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+main .menuRow h2 {
+    font-size: 16pt;
+    color: var(--red);
+    margin: 0;
+    padding: 0;
+}
+
+main .menuRow h2:not(main .menuRow h2:first-of-type) {
+    text-align: center;
+}
+
+main .menuRow h3 {
+    color: var(--orange);
+    margin: 0;
+    padding: 0;
+}
+
+main .menuRow h3:not(main .menuRow h3:first-child) {
+    text-align: right;
+}
+
+main .menuRow h3:not(main .menuRow h3:first-child) {
+    text-align: right;
+}
+
+main .add-on {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    width: 90%;
+    margin: 0 5%;
+    align-items: center;
+}
+
+main .add-on:not(main .mainProduct) {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+main .add-on h2 {
+    font-size: 16pt;
+    color: var(--red);
+    margin: 0;
+    padding: 0;
+}
+
+main .add-on h3 {
+    color: var(--orange);
+    margin: 0;
+    padding: 0;
+}
+
+main .add-on h3:not(main .add-on h3:first-child) {
+    text-align: right;
+}
+
+main .add-on h3:not(main .add-on h3:first-child) {
+    text-align: right;
+}
+
+main p:not(main footer p) {
+    font-family: Avenir;
+    font-size: 10pt;
+    letter-spacing: 0.07em;
+    color: var(--grey);
+    font-weight: bold;
+    grid-column: span 3;
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+}
+
+main footer {
+    font-family: Avenir;
+    font-size: 10pt;
+    color: var(--dark-brown);
+    letter-spacing: 0.05em;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 48px;
+}
+
+main footer a {
+    color: var(--red);
+}
+
+main footer p:first-child {
+    text-align: left;
+}
+
+main footer p:last-child {
+    text-align: right;
+}
+
+:root {
+    --white: #FFE7C7;
+    --red: #A83A21;
+    --orange: #E16E2B;
+    --dark-brown: #741B17;
+    --grey: #78462E;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("./src/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("./src/Avenir-Light.ttf");
+}

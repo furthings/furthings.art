@@ -1,0 +1,111 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Overriding some things from menuPage.css */
+main {
+    margin: 64px auto !important;
+}
+
+main .backButton {
+    top: 72px !important;
+}
+
+main nav {
+    grid-template-columns: repeat(3, 1fr) !important;
+    column-gap: 16px !important;
+    width: 90% !important;
+    margin: 0 5% !important;
+}
+
+#TOS .backToTopButton {
+    font-family: Poppins;
+    text-decoration: none;
+    color: var(--orange);
+    font-size: 42pt;
+    position: fixed;
+    bottom: 16px;
+    right: 64px;
+    transform: rotate(90deg);
+    transition-duration: .3s;
+}
+
+#TOS .backToTopButton:hover {
+    scale: 1.2;
+    color: var(--dark-brown);
+}
+
+#TOS {
+    padding: 16px 64px;
+    background-color: var(--white);
+    line-height: 2;
+}
+
+#TOS h1 {
+    font-family: Poppins;
+    font-size: 24pt;
+    color: var(--dark-brown);
+    text-align: center;
+}
+
+#TOS p, #TOS li {
+    font-family: Avenir;
+    font-size: 12pt;
+    color: var(--grey);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#TOS p {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#TOS ul {
+    margin-top: 0;
+}
+
+#TOS .lastUpdatedText {
+    font-weight: normal;
+    font-size: 10pt;
+    color: var(--grey);
+}
+
+:root {
+    --white: #FFE7C7;
+    --red: #A83A21;
+    --orange: #E16E2B;
+    --dark-brown: #741B17;
+    --grey: #78462E;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("./src/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: url("./src/Avenir-Light.ttf");
+}
+
+@media only screen and (max-width: 620px) {
+    main .backButton {
+        top: -6px !important;
+        left: 8px !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    #ArtTOS {
+        margin-top: 104vh;
+    }
+
+    #TOS {
+        padding: 16px;
+    }
+
+    #TOS .backToTopButton {
+        right: 16px;
+    }
+}
