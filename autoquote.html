@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>furthings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ccab23ba7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type=text/css href="styles/dark.css">
+  </head>
+
+  <body>
+    <main>
+      <a class="backButton" href="index.html"><i class="fa-solid fa-angle-left"></i></a>
+      <h1 class="largeTitle centerText">AUTO QUOTE</h1>
+
+      <p class="bodyText centerText">
+        Curious to see how much a commission may cost but don't want to do all that math by yourself? Fill out this form and a price estimate will be automatically generated for you. If you notice inconsistencies with the prices listed <a href="">here</a>, please let me know.
+      </p>
+
+      <form id="autoquote_form">
+        <div class="row">
+          <label for="framing_0">Framing:<br/>
+            <a id="add_character_btn" onclick="addCharacter()">+ Add Character?</a>
+          </label>
+          <select name="framing_0">
+            <option value="Closeup">Closeup</option>
+            <option value="Headshot">Headshot</option>
+            <option value="Bust">Bust</option>
+            <option value="Halfbody">Halfbody</option>
+            <option value="Thighup">Thighup</option>
+            <option value="Fullbody">Fullbody</option>
+            <option value="Scenic">Scenic</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="background">Background: </label>
+          <select id="background" name="background">
+            <option value="None">None</option>
+            <option value="Abstract">Abstract</option>
+            <option value="Simple Scene">Simple Scene</option>
+            <option value="Complex Scene">Complex Scene</option>
+          </select>
+          <label for="props">Props: </label>
+          <input id="props" name="props" value="0" type="number" min="0" max="9">
+        </div>
+        <div class="row">
+          <label for="cleanup">Cleanup: </label>
+          <input id="cleanup" name="cleanup" type="checkbox">
+          <label for="shading">Shading: </label>
+          <input id="shading" name="shading" type="checkbox">
+          <label for="no color">No Color: </label>
+          <input id="no color" name="no color" type="checkbox">
+        </div>
+        <textarea name="details" rows="2" cols="54" placeholder="Write additional prompt info here if needed..."></textarea>
+        <input type="submit" value="Results   >">
+      </form>
+
+      <div id="results">
+        <div id="content">
+          <h1 class="mediumTitle">QUOTE OVERVIEW:</h1>
+          <div id="overview"></div>
+          <h2 id="total" class="mediumTitle">TOTAL&nbsp; -&nbsp; <span id="total_value"></span></h2>
+          <p id="details"></p>
+        </div>
+        <div id="buttons">
+          <button onclick="hideResults()"><i class="fa-solid fa-angle-left"></i>Go Back</button>
+          <button onclick="copyResults()">Copy to Clipboard</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="socials">
+      <!-- email -->
+      <a target="_blank" href="mailto:furthingsart@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      <!-- etsy -->
+      <a target="_blank" href="https://www.etsy.com/shop/furthingsart"><i class="fa-brands fa-etsy"></i></a>
+      <!-- youtube -->
+      <a target="_blank" href="https://www.youtube.com/@furthings"><i class="fa-brands fa-youtube"></i></a>
+      <!-- bluesky -->
+      <a target="_blank" href="https://bsky.app/profile/furthings.bsky.social"><i class="fa-brands fa-bluesky"></i></a>
+      <!-- fur affinity -->
+      <a target="_blank" href="https://www.furaffinity.net/user/furthings#"><img src="images/fa-logo.svg"/></a>
+      <!-- instagram -->
+      <a target="_blank" href="https://www.instagram.com/furthingsart/"><i class="fa-brands fa-instagram"></i></a>
+      <!-- twitter -->
+      <a target="_blank" href="https://twitter.com/furthings"><i class="fa-brands fa-twitter"></i></a>
+      <!-- toyhouse -->
+      <a target="_blank" href="https://toyhou.se/furthings"><img src="images/toyhouse_icon.svg"/></a>
+      <!-- paypal -->
+      <a target="_blank" href="https://paypal.me/Avrey"><i class="fa-brands fa-paypal"></i></a>
+      <!-- kofi -->
+      <a target="_blank" href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/></a>
+      <!-- patreon -->
+      <a target="_blank" href="https://www.patreon.com/furthings/"><i class="fa-brands fa-patreon"></i></a>
+      <!-- artfight -->
+      <a target="_blank" href="https://artfight.net/~furthings"><img src="images/af-logo.svg"/></a>
+    </footer>
+    <script src="autoquote.js"></script>
+  </body>
+</html>

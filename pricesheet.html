@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>furthings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0ccab23ba7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type=text/css href="styles/dark.css">
+  </head>
+
+  <body>
+    <script src="dropdown.js"></script>
+    <main>
+      <a class="backButton" href="index.html"><i class="fa-solid fa-angle-left"></i></a>
+      <div class="priceSheet">
+        <h1 class="largeTitle centerText bigLines">PRICE SHEET</h1>
+        <div class="tosWarning">
+          <p style="color: var(--orange); font-weight: bold;" class="centerText">
+            <i class="fa-solid fa-triangle-exclamation"></i>&nbsp; BEFORE YOU BUY &nbsp;<i class="fa-solid fa-triangle-exclamation"></i>
+          </p>
+          <p class="centerText">
+            Ordering from me assumes that you have read, understood, and agreed to the conditions linked below.
+          </p>
+          <a href="tos.html">Terms of Service</a>
+        </div>
+
+        <!-- PRICES -->
+        <div class="prices">
+          <h1 class="title">BASE PRICE</h1>
+          <p class="description">
+            The framing of your character. By default, will be a rough/sketchy render with color and a solid or gradient background.
+          </p>
+
+          <!-- EXTREME CLOSEUP -->
+          <div id="extreme_closeup" onclick="toggleDropper('extreme_closeup')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Extreme Closeup</h1>
+            <h1 class="cost">$20</h1>
+            <p class="description">
+              Also called an insert. Can focus on small subjects like eyes, hands, a particular design element, a prop, et cetere.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- HEADSHOT -->
+          <div id="headshot" onclick="toggleDropper('headshot')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Headshot</h1>
+            <h1 class="cost">$30</h1>
+            <p class="description">
+              Also called a closeup. Shows the head and shoulder area.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- BUST -->
+          <div id="bust" onclick="toggleDropper('bust')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Bust</h1>
+            <h1 class="cost">$35</h1>
+            <p class="description">
+              Also called a medium closeup. Shows the elbow/chest area and above.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- HALFBODY -->
+          <div id="halfbody" onclick="toggleDropper('halfbody')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Halfbody</h1>
+            <h1 class="cost">$40</h1>
+            <p class="description">
+              Also called a mid shot. Shows about half the character; belly area and above. 
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- THIGHUP -->
+          <div id="thighup" onclick="toggleDropper('thighup')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Thighup</h1>
+            <h1 class="cost">$45</h1>
+            <p class="description">
+              Also called a medium full shot. Shows the thigh/knee area and above.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- FULLBODY -->
+          <div id="fullbody" onclick="toggleDropper('fullbody')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Fullbody</h1>
+            <h1 class="cost">$50</h1>
+            <p class="description">
+              Also called a full shot. Shows your entire character in full and in focus.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- SCENIC -->
+          <div id="scenic" onclick="toggleDropper('scenic')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Scenic</h1>
+            <h1 class="cost">$50 + (ask for details)</h1>
+            <p class="description">
+              Also called a full shot. Shows your entire character in full and in focus.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- ADDONS -->
+          <h1 class="title">ADD-ONS</h1>
+          <p class="description">
+            The framing of your character. By default, will be a rough/sketchy render with color and a solid or gradient background.
+          </p>
+
+          <!-- ADDITIONAL CHARACTERS -->
+          <div id="additional_characters" onclick="toggleDropper('additional_characters')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Additional Characters</h1>
+            <h1 class="cost">+ 65% of base</h1>
+            <p class="description">
+              Per additional character. For example, if a bullbody costs $60, two fullbodies would be $60.00 + $39.00 (65% of $60) = $99.00. The two characters don't have to share the same framing!
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- CLEANUP -->
+          <div id="cleanup" onclick="toggleDropper('cleanup')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Cleanup</h1>
+            <h1 class="cost">+ $10 per character</h1>
+            <p class="description">
+              Refines the lining and coloring so there is no line overlap, sketchiness, unintentional open lines, stray pixels, and the like.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- SHADING -->
+          <div id="shading" onclick="toggleDropper('shading')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Shading</h1>
+            <h1 class="cost">+ $10 per character</h1>
+            <p class="description">
+              Adds light and shadow to the drawing. Color/style/atmosphere suggestions are always welcome!
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- PROPS -->
+          <div id="props" onclick="toggleDropper('props')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Props</h1>
+            <h1 class="cost">+ $5</h1>
+            <p class="description">
+              First three props are free by default! This is the price for the fourth prop and above. Props are any non-character item that is included in the piece, such as a drink in hand or a game console.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- BACKGROUNDS -->
+          <!-- ABSTRACT -->
+          <div id="abstract_background" onclick="toggleDropper('abstract_background')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Simple Abstract Background</h1>
+            <h1 class="cost">+ $6</h1>
+            <p class="description">
+              Examples include repeating patterns, graphics, et cetera. Anything that doesn't resemble a concrete environment or location.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- SIMPLE SCENE -->
+          <div id="simple_scene" onclick="toggleDropper('simple_scene')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Simple Scene</h1>
+            <h1 class="cost">+ $15</h1>
+            <p class="description">
+              Puts your character into a simplified environment.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- COMPLEX SCENE -->
+          <div id="complex_scene" onclick="toggleDropper('complex_scene')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Complex Scene</h1>
+            <h1 class="cost">+ $15</h1>
+            <p class="description">
+              Puts your character into a detailed environment.
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+
+          <!-- NO COLOR -->
+          <div id="no_color" onclick="toggleDropper('no_color')" class="listing dropper">
+            <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>No Color</h1>
+            <h1 class="cost">- $8 per character</h1>
+            <p class="description">
+              Looking for an empty sketch or lineart instead? Take $6 off the base price per character!
+            </p>
+            <div class="dropperContent">
+              <img src="images/placeholder.png"/>
+            </div>
+          </div>
+        </div>
+      <div>
+    </main>
+
+    <footer class="socials">
+      <!-- email -->
+      <a target="_blank" href="mailto:furthingsart@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      <!-- etsy -->
+      <a target="_blank" href="https://www.etsy.com/shop/furthingsart"><i class="fa-brands fa-etsy"></i></a>
+      <!-- youtube -->
+      <a target="_blank" href="https://www.youtube.com/@furthings"><i class="fa-brands fa-youtube"></i></a>
+      <!-- bluesky -->
+      <a target="_blank" href="https://bsky.app/profile/furthings.bsky.social"><i class="fa-brands fa-bluesky"></i></a>
+      <!-- fur affinity -->
+      <a target="_blank" href="https://www.furaffinity.net/user/furthings#"><img src="images/fa-logo.svg"/></a>
+      <!-- instagram -->
+      <a target="_blank" href="https://www.instagram.com/furthingsart/"><i class="fa-brands fa-instagram"></i></a>
+      <!-- twitter -->
+      <a target="_blank" href="https://twitter.com/furthings"><i class="fa-brands fa-twitter"></i></a>
+      <!-- toyhouse -->
+      <a target="_blank" href="https://toyhou.se/furthings"><img src="images/toyhouse_icon.svg"/></a>
+      <!-- paypal -->
+      <a target="_blank" href="https://paypal.me/Avrey"><i class="fa-brands fa-paypal"></i></a>
+      <!-- kofi -->
+      <a target="_blank" href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/></a>
+      <!-- patreon -->
+      <a target="_blank" href="https://www.patreon.com/furthings/"><i class="fa-brands fa-patreon"></i></a>
+      <!-- artfight -->
+      <a target="_blank" href="https://artfight.net/~furthings"><img src="images/af-logo.svg"/></a>
+    </footer>
+  </body>
+</html>
