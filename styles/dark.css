@@ -73,50 +73,17 @@ main {
 }
 
 /* tos page */
-.tosDirectory {
-  display: grid;
-  place-content: center;
-}
-
-.tosDirectory h1 {
-  font-size: 14pt;
-  padding: 0 8px;
-  border: 1px solid transparent;
-  text-align: center;
-}
-
-.tosDirectory h1 i:first-of-type {
-  margin-right: 8px;
-}
-
-.tosDirectory h1 i:last-of-type {
-  margin-left: 8px;
-}
-
-.tosDirectory a {
-  text-decoration: none;
-  counter-increment: num;
-  margin-left: 16px;
-}
-
-.tosDirectory a:hover {
-  color: var(--link_red);
-}
-
-.tosDirectory a::before {
-  content: counter(num) " -- ";
-  color: var(--orange);
-}
-
 .tosSection {
   color: var(--orange);
   font-size: 14pt;
-}
-
-.tosSection {
   margin: 0 32px;
   counter-reset: bullet 0;
-  counter-increment: section;
+  counter-increment: section 1;
+}
+
+.tosDirectory {
+  counter-increment: section 0;
+  color: var(--text_red);
 }
 
 .bullet {
@@ -397,7 +364,9 @@ main {
 
 #results #content {
   min-height: 224px;
-  width: min-content;
+  width: max-content;
+  display: grid;
+  place-content: center;
   place-self: center;
 }
 
