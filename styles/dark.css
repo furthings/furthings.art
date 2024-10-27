@@ -454,6 +454,12 @@ main {
   transform: scale(1.5);
 }
 
+.socials a:hover * {
+  fill: var(--title_white);
+  transition-duration: .1s;
+  transform: scale(1.5);
+}
+
 .underlineText {
   text-decoration: underline;
 }
