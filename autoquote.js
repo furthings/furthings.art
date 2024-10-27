@@ -228,7 +228,7 @@ function copyResults() {
   let largeDelimeter = "  -  ";
   let smallDelimeter = " ";
 
-  let result = "";
+  let result = "FURTHINGS QUOTE OVERVIEW\n";
   let appendEntry = function(item, cost, math) {
     if (math != undefined) {
       result += item + largeDelimeter + cost + smallDelimeter + math;
@@ -302,7 +302,11 @@ function copyResults() {
     appendEntry(item, cost, math);
   }
 
-  result += overview.details;
+  result += "Total  -  $" + total + '\n';
+
+  if (overview.details != "[Empty]") {
+    result += "Prompt  -  " + overview.details;
+  }
 
   navigator.clipboard.writeText(result);
 }
