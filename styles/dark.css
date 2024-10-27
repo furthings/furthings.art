@@ -448,14 +448,8 @@ main {
   padding: 0;
 }
 
-.socials a:hover * {
-  color: var(--title_white);
-  transition-duration: .1s;
-  transform: scale(1.5);
-}
-
-.socials a:hover * {
-  fill: var(--title_white);
+.socials a:hover i, .socials a:hover svg {
+  filter: brightness(200%);
   transition-duration: .1s;
   transform: scale(1.5);
 }
