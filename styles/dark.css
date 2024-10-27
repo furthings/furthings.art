@@ -448,7 +448,7 @@ main {
   padding: 0;
 }
 
-.socials a:hover i, .socials a:hover svg {
+.socials a:hover i, .socials a:hover img {
   filter: brightness(200%);
   transition-duration: .1s;
   transform: scale(1.5);
