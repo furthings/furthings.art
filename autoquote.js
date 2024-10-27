@@ -39,6 +39,12 @@ let overview = {
   details: ""
 };
 
+// for fomatting
+let currency = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 // autoquote form submission
 document.getElementById("autoquote_form").addEventListener("submit", function(e) {
   e.preventDefault(); // keep browser from reloading on submit
@@ -136,11 +142,6 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   overviewDOM.replaceChildren();
   detailsDOM.replaceChildren();
 
-  // for fomatting
-  let currency = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
 
   let appendEntry = function(item, cost, math) {
     let newPar = document.createElement("p");
@@ -302,7 +303,7 @@ function copyResults() {
     appendEntry(item, cost, math);
   }
 
-  result += "Total  -  $" + total + '\n';
+  result += `TOTAL  -  ${currency.format(total)}\n`;
 
   if (overview.details != "[Empty]") {
     result += "Prompt  -  " + overview.details;
