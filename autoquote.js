@@ -1,13 +1,15 @@
+// TO CHANGE PRICES: Be sure to update both pricesheet.html AND autoquote.js
+
 let numOfCharacters = 0;
 
 let framingCosts = {
   "Closeup": 20,
-  "Headshot": 30,
-  "Bust": 35,
-  "Halfbody": 40,
-  "Thighup": 45,
-  "Fullbody": 50,
-  "Scenic": 50,
+  "Headshot": 35,
+  "Bust": 40,
+  "Halfbody": 45,
+  "Thighup": 50,
+  "Fullbody": 55,
+  "Scenic": 55,
 }
 
 let addonsCosts = {
