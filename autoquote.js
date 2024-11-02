@@ -3,7 +3,6 @@
 let numOfCharacters = 0;
 
 let framingCosts = {
-  "Closeup": 20,
   "Headshot": 35,
   "Bust": 40,
   "Halfbody": 45,
