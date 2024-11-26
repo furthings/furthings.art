@@ -248,7 +248,7 @@ main {
 
 .prices .active .dropperContent {
   /*grid-template-rows: 128px; /* unhide content */
-  grid-template-rows: 256px;
+  grid-template-rows: 256px 256px;
   transition-duration: .3s;
   margin-bottom: 8px;
 }
