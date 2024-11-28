@@ -18,14 +18,17 @@ body {
 main {
   scroll-behavior: smooth;
   padding: 32px 0;
-  width: 640px;
-  min-height: 448px;
-  max-height: 78vh;
-  overflow: scroll;
-  margin-left: calc(50% - (640px / 2));
+  width: var(--main_width);
+  min-height: var(--main_min_height);
+  max-height: var(--main_max_height);
+  overflow: auto;
+  margin-left: calc(50% - (var(--main_width) / 2));
   background-color: var(--content_box);
   border-radius: 25px;
   font-family: "Montserrat", sans-serif;
+
+  scrollbar-color: #888 transparent;
+  scrollbar-width: auto;
 }
 
 .backButton {
@@ -34,7 +37,7 @@ main {
   font-size: 32pt;
   font-weight: bold;
   position: absolute;
-  left: calc((50% - 640px / 2) + 32px);
+  left: calc((50% - var(--main_width) / 2) + 32px);
 }
 
 .backButton:hover {
@@ -159,7 +162,7 @@ main {
 
 .prices .title {
   color: var(--text_red);
-  font-size: 18pt;
+  font-size: var(--small_title_size);
 
   margin: 0;
 }
@@ -167,7 +170,7 @@ main {
 .prices .description {
   color: var(--body_white);
   line-height: 1.5;
-  font-size: 11pt;
+  font-size: var(--body_text_size);
 
   margin: 8px 0;
 }
@@ -202,7 +205,7 @@ main {
 .prices .listing .description {
   color: var(--body_white);
   line-height: 1.5;
-  font-size: 11pt;
+  font-size: var(--body_text_size);
 
   grid-column: span 2;
   margin: 8px 0;
@@ -339,7 +342,7 @@ main {
 #autoquote_form textarea {
   background-color: var(--background);
   color: var(--body_white);
-  font-size: 11pt;
+  font-size: var(--body_text_size);
   font-family: "Montserrat";
   border: none;
   border-radius: 8px;
@@ -384,7 +387,7 @@ main {
 }
 
 #results #content p {
-  font-size: 11pt;
+  font-size: var(--body_text_size);
   white-space: nowrap;
   color: var(--body_white);
   line-height: 1;
@@ -431,8 +434,8 @@ main {
 /* footer/social media */
 
 .socials {
-  width: 640px;
-  margin: 16px calc(50% - 640px / 2);
+  width: var(--main_width);
+  margin: 16px calc(50% - var(--main_width) / 2);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-flow: column;
@@ -448,7 +451,7 @@ main {
 
 .socials a * {
   width: calc(640px / 16);
-  font-size: 22pt;
+  font-size: var(--medium_title_size);
   margin: 0;
   padding: 0;
 }
@@ -471,14 +474,14 @@ main {
 /* various text style */
 .largeTitle {
   color: var(--title_white);
-  font-size: 26pt;
+  font-size: var(--large_title_size);
   margin: 0;
   padding: 0;
 }
 
 .mediumTitle {
   color: var(--orange);
-  font-size: 22pt;
+  font-size: var(--medium_title_size);
   margin: 0;
   padding: 0;
 }
@@ -487,7 +490,7 @@ main {
   font-weight: bold;
   color: var(--text_red);
   text-decoration: none;
-  font-size: 18pt;
+  font-size: var(--small_title_size);
   margin: 0;
   padding: 0;
 }
@@ -496,7 +499,7 @@ main {
   color: var(--body_white);
   margin: 8px 64px;
   line-height: 1.5;
-  font-size: 11pt;
+  font-size: var(--body_text_size);
 }
 
 .bodyText a {
@@ -513,13 +516,42 @@ main {
   line-height: 1.5;
 }
 
-@media screen and (min-width: 1920px) {
-  body {
-    transform: scale(1.2);
-  }
+@media screen and (min-width: 0px) and (max-width: 999px) {
+  :root {
+    --large_title_size: 26pt;
+    --medium_title_size: 22pt;
+    --small_title_size: 18pt;
+    --body_text_size: 11pt;
 
-  main {
-    max-height: 60vh;
+    --main_width: 640px;
+    --main_min_height: 448px;
+    --main_max_height: 78vh;
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1920px){
+  :root {
+    --large_title_size: 26pt;
+    --medium_title_size: 22pt;
+    --small_title_size: 18pt;
+    --body_text_size: 11pt;
+
+    --main_width: 640px;
+    --main_min_height: 448px;
+    --main_max_height: 78vh;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  :root {
+    --large_title_size: 30pt;
+    --medium_title_size: 26pt;
+    --small_title_size: 21pt;
+    --body_text_size: 14pt;
+
+    --main_width: 720px;
+    --main_min_height: 504px;
+    --main_max_height: 78vh;
   }
 }
 
@@ -534,3 +566,4 @@ main {
   --content_box: #534B45;
   --background: #3F3934;
 }
+

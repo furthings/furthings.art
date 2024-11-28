@@ -327,21 +327,19 @@ function addCharacter() {
   select.setAttribute("name", `framing_${numOfCharacters}`);
 
   // options
-  let closeup = createFramingOption("Closeup");
-  let headshot = createFramingOption("Headshot");
-  let bust = createFramingOption("Bust");
-  let halfbody = createFramingOption("Halfbody");
-  let thighup = createFramingOption("Thighup");
-  let fullbody = createFramingOption("Fullbody");
-  let scenic = createFramingOption("Scenic");
+  //let closeup = createFramingOption("Closeup");
+  const headshot = createFramingOption("Headshot");
+  const bust = createFramingOption("Bust");
+  const halfbody = createFramingOption("Halfbody");
+  const thighup = createFramingOption("Thighup");
+  const fullbody = createFramingOption("Fullbody");
+  //let scenic = createFramingOption("Scenic");
+  const all_options = [headshot, bust, halfbody, thighup, fullbody];
 
-  select.appendChild(closeup);
-  select.appendChild(headshot);
-  select.appendChild(bust);
-  select.appendChild(halfbody);
-  select.appendChild(thighup);
-  select.appendChild(fullbody);
-  select.appendChild(scenic);
+  // add all options to select
+  for (const option of all_options) {
+    select.appendChild(option);
+  }
 
   // add a new row for every 3 characters
   let rowNumber = Math.floor(numOfCharacters / 3);
