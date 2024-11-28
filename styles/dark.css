@@ -101,7 +101,7 @@ main {
 
 .subbullet {
   counter-increment: subbullet;
-  padding-left: 32px;
+  margin-left: 32px;
 }
 
 .tosSection::before {
@@ -217,7 +217,7 @@ main {
   display: grid;
   column-gap: 8px;
   place-items: center;
-  grid-template-rows: 0px; /* initally 0 to hide the content */
+  grid-template-rows: 1fr 1fr; 
   
   transition-duration: .3s;
   transition-property: grid-template-rows;
@@ -227,8 +227,7 @@ main {
 
 .prices .listing .dropperContent img {
   object-fit: scale-down;
-  width: 100%;
-  height: 100%;
+  width: 0%; /* hide until active */
 }
 
 .prices .listing:hover .title {
@@ -255,10 +254,14 @@ main {
 }
 
 .prices .active .dropperContent {
-  /*grid-template-rows: 128px; /* unhide content */
-  grid-template-rows: 256px 256px;
-  transition-duration: .3s;
+  grid-template-rows: 1fr 1fr;
   margin-bottom: 8px;
+}
+
+.prices .active .dropperContent img {
+  transition-property: width;
+  transition-duration: .1s;
+  width: 100%;
 }
 
 /* autoquote page */
@@ -450,7 +453,7 @@ main {
 }
 
 .socials a * {
-  width: calc(640px / 16);
+  width: calc(var(--main_width) / 16);
   font-size: var(--medium_title_size);
   margin: 0;
   padding: 0;
@@ -516,7 +519,90 @@ main {
   line-height: 1.5;
 }
 
-@media screen and (min-width: 0px) and (max-width: 999px) {
+@media screen and (min-width: 0px) and (max-width: 639px) {
+  :root {
+    --large_title_size: 26pt;
+    --medium_title_size: 22pt;
+    --small_title_size: 18pt;
+    --body_text_size: 11pt;
+
+    --main_width: 100vw;
+    --main_min_height: auto;
+    --main_max_height: auto;
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    place-content: unset;
+    justify-items: center;
+    grid-template-rows: 90vh 10vh;
+  }
+
+  main {
+    border-radius: 0px;
+    align-content: center;
+  }
+
+  .backButton {
+    display: none;
+  }
+
+  .homeDirectory {
+    width: 95%;
+    margin: 0 2.5%;
+  }
+
+  #autoquote_form {
+    row-gap: 8px;
+  }
+
+  #autoquote_form .row {
+    grid-auto-flow: row;
+    grid-template-columns: 2fr 3fr;
+    row-gap: 8px;
+  }
+
+  #autoquote_form .row label {
+    justify-self: right;
+  }
+
+  #autoquote_form .row input, #autoquote_form .row select {
+    justify-self: left;
+  }
+
+  textarea {
+    width: 80vw;
+  }
+
+  .tosSection {
+    margin: 0 8px;
+  }
+
+  .bullet {
+    margin-left: 8px;
+  }
+
+  .subbullet {
+    margin-left: 8px;
+  }
+
+  .bodyText {
+    margin: 8px;
+  }
+
+  .priceSheet .tosWarning {
+    border-radius: 0px;
+    margin: 8px 0;
+  }
+
+  .prices {
+    padding: 8px;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1199px){
   :root {
     --large_title_size: 26pt;
     --medium_title_size: 22pt;
@@ -529,20 +615,7 @@ main {
   }
 }
 
-@media screen and (min-width: 1000px) and (max-width: 1920px){
-  :root {
-    --large_title_size: 26pt;
-    --medium_title_size: 22pt;
-    --small_title_size: 18pt;
-    --body_text_size: 11pt;
-
-    --main_width: 640px;
-    --main_min_height: 448px;
-    --main_max_height: 78vh;
-  }
-}
-
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1200px) {
   :root {
     --large_title_size: 30pt;
     --medium_title_size: 26pt;
