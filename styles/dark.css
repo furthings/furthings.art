@@ -4,6 +4,7 @@ html {
   overflow: hidden;
 }
 
+/* force body to take up entire screen */
 body {
   margin: 0;
   height: 100vh;
@@ -13,6 +14,7 @@ body {
   place-content: center;
 }
 
+/* automatically centered by body */
 main {
   scroll-behavior: smooth;
   padding: 32px 0;
