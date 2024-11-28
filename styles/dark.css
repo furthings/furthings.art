@@ -515,7 +515,7 @@ main {
 
 @media screen and (min-width: 1920px) {
   body {
-    transform: scale(1.2) translateY(-40%);
+    transform: scale(1.2);
   }
 
   main {
