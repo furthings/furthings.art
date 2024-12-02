@@ -19,7 +19,6 @@ let addonsCosts = {
     "Complex Scene": 30
   },
   props: 5,      // per character (first 3 are free)
-  cleanup: 10,   // per character
   shading: 10,   // per character
   noColor: 8,    // per character (subtract this value, don't add)
 }
@@ -33,7 +32,6 @@ let overview = {
   addons: {
     background: "",
     props: 0,
-    cleanup: false,
     shading: false,
     noColor: false
   },
@@ -56,7 +54,6 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   overview.framingOptions.discounted = [];
   overview.addons.background = "";
   overview.addons.props = 0;
-  overview.addons.cleanup = false;
   overview.addons.shading = false;
   overview.addons.noColor = false;
   overview.details = "";
@@ -104,12 +101,6 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
     total += addonsCosts.props * (props - 3);
   }
   overview.addons.props = props;
-
-  // cleanup
-  if (formData.get("cleanup") == "on") {
-    total += addonsCosts.cleanup * (numOfCharacters + 1);
-    overview.addons.cleanup = true;
-  }
 
   // shading
   if (formData.get("shading") == "on") {
@@ -163,14 +154,6 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
     item = `${overview.framingOptions.discounted[i]}`;
     cost = `$${framingCosts[overview.framingOptions.discounted[i]] * 0.65}`;
     math = `(65% of $${framingCosts[overview.framingOptions.discounted[i]]})`;
-    appendEntry(item, cost, math);
-  }
-
-  // cleanup
-  if (overview.addons.cleanup) {
-    item = "Cleanup";
-    cost = `$${addonsCosts.cleanup * (numOfCharacters + 1)}`;
-    math = `($${addonsCosts.cleanup} per character)`;
     appendEntry(item, cost, math);
   }
 
@@ -254,14 +237,6 @@ function copyResults() {
     item = `${overview.framingOptions.discounted[i]}`;
     cost = `$${framingCosts[overview.framingOptions.discounted[i]] * 0.65}`;
     math = `(65% of $${framingCosts[overview.framingOptions.discounted[i]]})`;
-    appendEntry(item, cost, math);
-  }
-
-  // cleanup
-  if (overview.addons.cleanup) {
-    item = "Cleanup";
-    cost = `$${addonsCosts.cleanup * (numOfCharacters + 1)}`;
-    math = `($${addonsCosts.cleanup} per character)`;
     appendEntry(item, cost, math);
   }
 
