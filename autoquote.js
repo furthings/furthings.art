@@ -17,7 +17,7 @@ let addonsCosts = {
     "Simple Scene": 15,
     "Complex Scene": 30
   },
-  props: 5,      // per character (first 3 are free)
+  props: 8,      // per character (first 3 are free)
   shading: 10,   // per character
   noColor: 8,    // per character (subtract this value, don't add)
 }
