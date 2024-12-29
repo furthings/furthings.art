@@ -1,4 +1,4 @@
-// TO CHANGE PRICES: Be sure to update both pricesheet.html AND autoquote.js
+// TO CHANGE PRICES: Be sure to update both pricesheet.html, autoquote.html AND autoquote.js
 
 let numOfCharacters = 0;
 
@@ -8,7 +8,6 @@ let framingCosts = {
   "Halfbody": 45,
   "Thighup": 50,
   "Fullbody": 55,
-  "Scenic": 55,
 }
 
 let addonsCosts = {
