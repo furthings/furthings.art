@@ -13,8 +13,8 @@ let framingCosts = {
 let addonsCosts = {
   backgrounds: {
     "None": 0,
-    "Abstract": 6,
-    "Simple Scene": 15,
+    "Abstract": 10,
+    "Simple Scene": 25,
   },
   props: 8,      // per character (first 3 are free)
   shading: 10,   // per character
