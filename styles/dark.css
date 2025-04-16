@@ -527,15 +527,13 @@ main {
     --body_text_size: 11pt;
 
     --main_width: 100vw;
-    --main_min_height: auto;
-    --main_max_height: auto;
   }
 
   body {
     margin: 0;
     place-content: unset;
     justify-items: center;
-    grid-template-rows: 90vh 10vh;
+    grid-template-rows: 9fr 1fr;
   }
 
   main {
