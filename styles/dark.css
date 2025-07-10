@@ -76,6 +76,10 @@ main {
   background-color: var(--orange);
 }
 
+.underlineHover {
+	text-decoration: none;
+}
+
 .underlineHover:hover {
   text-decoration: underline;
 }
