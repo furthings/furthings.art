@@ -19,9 +19,9 @@ const footer_html = `
       <!-- kofi -->
       <a href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/>
       <!-- discord -->
-      <a href="about.html"><i class="fa-brands fa-discord">
+      <a href="about.html"><i class="fa-brands fa-discord"></i></a>
       <!-- telegram -->
-      <a href="about.html"><i class="fa-brands fa-telegram">
+      <a href="about.html"><i class="fa-brands fa-telegram"></i></a>
       <!-- artfight -->
       <a href="https://artfight.net/~furthings"><img src="images/af-logo.svg"/></a>`;
 
