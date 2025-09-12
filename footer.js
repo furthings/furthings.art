@@ -1,8 +1,6 @@
 const footer_html = `
       <!-- email -->
       <a href="mailto:furthingsart@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      <!-- etsy -->
-      <a href="https://www.etsy.com/shop/furthingsart"><i class="fa-brands fa-etsy"></i></a>
       <!-- youtube -->
       <a href="https://www.youtube.com/@furthings"><i class="fa-brands fa-youtube"></i></a>
       <!-- bluesky -->
@@ -18,6 +16,8 @@ const footer_html = `
       <a href="https://paypal.me/Avrey"><i class="fa-brands fa-paypal"></i></a>
       <!-- kofi -->
       <a href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/>
+      <!-- etsy -->
+      <a href="https://www.etsy.com/shop/furthingsart"><i class="fa-brands fa-etsy"></i></a>
       <!-- discord -->
       <a href="about.html"><i class="fa-brands fa-discord"></i></a>
       <!-- telegram -->
