@@ -18,10 +18,11 @@ const footer_html = `
       <a href="https://paypal.me/Avrey"><i class="fa-brands fa-paypal"></i></a>
       <!-- kofi -->
       <a href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/></a>
-      <!-- patreon -->
-      <a href="https://www.patreon.com/furthings/"><i class="fa-brands fa-patreon"></i></a>
       <!-- artfight -->
       <a href="https://artfight.net/~furthings"><img src="images/af-logo.svg"/></a>`;
+
+/* <!-- patreon -->
+      <a href="https://www.patreon.com/furthings/"><i class="fa-brands fa-patreon"></i></a> */
 
 const footer = document.getElementById("footer");
 footer.innerHTML = footer_html;
