@@ -17,7 +17,11 @@ const footer_html = `
       <!-- paypal -->
       <a href="https://paypal.me/Avrey"><i class="fa-brands fa-paypal"></i></a>
       <!-- kofi -->
-      <a href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/></a>
+      <a href="https://ko-fi.com/furthings"><img src="images/kofi-logo.svg"/>
+      <!-- discord -->
+      <a href="about.html"><i class="fa-brands fa-discord">
+      <!-- telegram -->
+      <a href="about.html"><i class="fa-brands fa-telegram">
       <!-- artfight -->
       <a href="https://artfight.net/~furthings"><img src="images/af-logo.svg"/></a>`;
 
