@@ -3,11 +3,11 @@
 let numOfCharacters = 0;
 
 let framingCosts = {
-  "Headshot": 35,
-  "Bust": 40,
-  "Halfbody": 45,
-  "Thighup": 50,
-  "Fullbody": 55,
+  "Headshot": 45,
+  "Bust": 50,
+  "Halfbody": 55,
+  "Thighup": 60,
+  "Fullbody": 65,
 }
 
 let addonsCosts = {
