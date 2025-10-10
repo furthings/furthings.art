@@ -19,7 +19,7 @@ const footer_html = `
       <!-- etsy -->
       <a href="https://www.etsy.com/shop/furthingsart"><i class="fa-brands fa-etsy"></i></a>
       <!-- discord -->
-      <a href="about.html"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://discord.gg/ZzEMQ2B4cv"><i class="fa-brands fa-discord"></i></a>
       <!-- telegram -->
       <a href="about.html"><i class="fa-brands fa-telegram"></i></a>
       <!-- artfight -->
