@@ -1,5 +1,3 @@
-<!-- TO CHANGE PRICES: Be sure to update both pricesheet.html, autoquote.html, AND autoquote.js -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +36,7 @@
           </p>
 
           <!-- HEADSHOT -->
-          <div id="headshot" onclick="toggleDropper('headshot')" class="listing dropper">
+          <div id="headshot" onclick="toggleDropper('headshot'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Headshot</h1>
             <h1 class="cost">$45</h1>
             <p class="description">
@@ -55,7 +53,7 @@
           </div>
 
           <!-- BUST -->
-          <div id="bust" onclick="toggleDropper('bust')" class="listing dropper">
+          <div id="bust" onclick="toggleDropper('bust'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Bust</h1>
             <h1 class="cost">$50</h1>
             <p class="description">
@@ -70,7 +68,7 @@
           </div>
 
           <!-- HALFBODY -->
-          <div id="halfbody" onclick="toggleDropper('halfbody')" class="listing dropper">
+          <div id="halfbody" onclick="toggleDropper('halfbody'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Halfbody</h1>
             <h1 class="cost">$55</h1>
             <p class="description">
@@ -85,7 +83,7 @@
           </div>
 
           <!-- THIGHUP -->
-          <div id="thighup" onclick="toggleDropper('thighup')" class="listing dropper">
+          <div id="thighup" onclick="toggleDropper('thighup'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Thighup</h1>
             <h1 class="cost">$60</h1>
             <p class="description">
@@ -100,7 +98,7 @@
           </div>
 
           <!-- FULLBODY -->
-          <div id="fullbody" onclick="toggleDropper('fullbody')" class="listing dropper">
+          <div id="fullbody" onclick="toggleDropper('fullbody'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Fullbody</h1>
             <h1 class="cost">$65</h1>
             <p class="description">
@@ -123,7 +121,7 @@
           </p>
 
           <!-- ADDITIONAL CHARACTERS -->
-          <div id="additional_characters" onclick="toggleDropper('additional_characters')" class="listing dropper">
+          <div id="additional_characters" onclick="toggleDropper('additional_characters'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Additional Characters</h1>
             <h1 class="cost">+ 65% of base</h1>
             <p class="description">
@@ -138,7 +136,7 @@
           </div>
 
           <!-- SHADING -->
-          <div id="shading" onclick="toggleDropper('shading')" class="listing dropper">
+          <div id="shading" onclick="toggleDropper('shading'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Shading</h1>
             <h1 class="cost">+ $10 per character</h1>
             <p class="description">
@@ -155,7 +153,7 @@
           </div>
 
           <!-- PROPS -->
-          <div id="props" onclick="toggleDropper('props')" class="listing dropper">
+          <div id="props" onclick="toggleDropper('props'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Props</h1>
             <h1 class="cost">+ $8</h1>
             <p class="description">
@@ -173,7 +171,7 @@
           
           <!-- BACKGROUNDS -->
           <!-- ABSTRACT -->
-          <div id="abstract_background" onclick="toggleDropper('abstract_background')" class="listing dropper">
+          <div id="abstract_background" onclick="toggleDropper('abstract_background'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Abstract Background</h1>
             <h1 class="cost">+ $10</h1>
             <p class="description">
@@ -188,7 +186,7 @@
           </div>
 
           <!--  SCENE -->
-          <div id="simple_scene" onclick="toggleDropper('simple_scene')" class="listing dropper">
+          <div id="simple_scene" onclick="toggleDropper('simple_scene'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Scenic Background</h1>
             <h1 class="cost">+ $25</h1>
             <p class="description">
@@ -205,7 +203,7 @@
           </div>
 
           <!-- 3D REFERENCE SHEET -->
-          <div id="3d_reference" onclick="toggleDropper('3d_reference')" class="listing dropper">
+          <div id="3d_reference" onclick="toggleDropper('3d_reference'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>3D Reference Fee</h1>
             <h1 class="cost">+ $8 or $12</h1>
             <p class="description">
@@ -222,7 +220,7 @@
           </div>
 
           <!-- NO COLOR -->
-          <div id="no_color" onclick="toggleDropper('no_color')" class="listing dropper">
+          <div id="no_color" onclick="toggleDropper('no_color'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>No Color</h1>
             <h1 class="cost">- $8 per character</h1>
             <p class="description">
@@ -241,6 +239,13 @@
 
     <footer id="footer" class="socials">
     </footer>
+	<div id="image_viewer">
+		<button id="image_viewer_left_btn" onclick="viewerLeft()"><i class="fa-solid fa-chevron-left"></i></button>
+		<div id="image_viewer_images">
+		</div>
+		<button id="image_viewer_right_btn" onClick="viewerRight()"><i class="fa-solid fa-chevron-right"></i></button>
+		<button id="image_viewer_quit_btn" onclick="quitViewer()"><i class="fa-solid fa-x"></i></button>
+	</div>
     <script src="footer.js"></script>
   </body>
 </html>

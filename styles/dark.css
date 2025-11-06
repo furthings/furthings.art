@@ -106,7 +106,7 @@ main {
 .subbullet {
   counter-increment: subbullet;
   margin-left: 32px;
-}
+333}
 
 .tosSection::before {
   content: counter(section) ".0 - ";
@@ -230,8 +230,9 @@ main {
 }
 
 .prices .listing .dropperContent img {
-  object-fit: scale-down;
-  width: 0%; /* hide until active */
+  display: none; /* hide until active */
+  object-fit: contain;
+  width: 100%;
 }
 
 .prices .listing:hover .title {
@@ -265,7 +266,59 @@ main {
 .prices .active .dropperContent img {
   transition-property: width;
   transition-duration: .1s;
-  width: 100%;
+  display: block;
+}
+
+#image_viewer {
+  display: none;
+  grid-template-columns: 1fr 8fr 1fr;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+#image_viewer .viewing {
+  display: block;
+  max-height: 80vh;
+  max-width: 80vh;
+  min-height: 40vh;
+  min-width: 40vw;
+}
+
+#image_viewer button {
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	background-color: transparent;
+	color: var(--button_red);
+	font-size: 28pt;
+}
+
+#image_viewer button:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	color: var(--orange);
+}
+
+#image_viewer_quit_btn {
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	top: 32px;
+	right: 64px;
+}
+
+#image_viewer button:not(#image_viewer_quit_btn) {
+	height: 256px;
+}
+
+
+#image_viewer_images img {
+  display: none;
+  margin: auto;
 }
 
 /* autoquote page */
