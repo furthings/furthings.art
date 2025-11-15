@@ -281,11 +281,14 @@ main {
   backdrop-filter: blur(2px);
 }
 
-#image_viewer .viewing {
-  display: block;
-  object-fit: contain;
-  max-width: 80vw;
-  max-height: 80vw;
+#image_viewer_images {
+}
+
+#image_viewer_images .viewing {
+	display: block;
+	max-width: 80vw;
+	max-height: 80vh;
+	object-fit: contain;
 }
 
 #image_viewer button {
@@ -658,9 +661,12 @@ main {
 	  grid-template-rows: min-content 64px;
 	  align-content: center;
   }
-  #image_viewer .viewing {
+  #image_viewer_images {
+	  grid-column: 1 / 4;
+  }
+  #image_viewer_images .viewing {
 	  max-width: 100vw;
-	  max-height: 80vh;
+	  max-height: 60vh;
   }
   #image_viewer button {
 	  grid-row: 2 / 3;
