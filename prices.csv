@@ -1,0 +1,14 @@
+Head,35,
+Bust,40,
+Half,45,
+Thigh,50,
+Full,55,
+,,
+Add,65,% of base
+Shading,10,
+Props,8,only for 4th and above
+Abstract,10,
+Scene,25,
+Unclear,8,
+Unclearer,12,
+No Color,-8,per character
