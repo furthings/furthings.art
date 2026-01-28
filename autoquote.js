@@ -1,26 +1,41 @@
-// TO CHANGE PRICES: Be sure to update both pricesheet.html, autoquote.html AND autoquote.js
+let framingPrices = {
+}
+
+let addonsPrices = {
+	"backgrounds": {}
+}
+
+async function fetchPrices() {
+	try {
+		const response = await fetch("prices.csv");
+		const data = await response.text();
+		const prices = data.split("\n");
+		let costType = "framing";
+		for (const price of prices) {
+			if (price.includes(",")) {
+				let formatted = price.split(",");
+				if (costType == "Framing") {
+					framingPrices[formatted[0]] = Number(formatted[1]);
+				} else if (costType == "Addons") {
+					if (formatted[0] == "Unclear Reference") {
+						addonsPrices[formatted[0]] = [Number(formatted[1]), Number(formatted[2])];
+					} else {
+						addonsPrices[formatted[0]] = Number(formatted[1]);
+					}
+				} else if (costType == "Backgrounds") {
+					addonsPrices["backgrounds"][formatted[0]] = Number(formatted[1]);
+				}
+			} else {
+				costType = price;
+			}
+		}
+	} catch (err) {
+		console.error("Error fetching prices", err);
+	}
+}
+fetchPrices();
 
 let numOfCharacters = 0;
-
-let framingCosts = {
-  "Headshot": 35,
-  "Bust": 40,
-  "Halfbody": 45,
-  "Thighup": 50,
-  "Fullbody": 55,
-}
-
-let addonsCosts = {
-  backgrounds: {
-    "None": 0,
-    "Abstract": 10,
-    "Simple Scene": 25,
-  },
-  props: 8,      // per character (first 3 are free)
-  shading: 10,   // per character
-  noColor: 8,    // per character (subtract this value, don't add)
-}
-
 let total = 0;
 let overview = {
   framingOptions: {
@@ -66,8 +81,8 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   let highestFramingOption = "";
   for (let i = 0; i <= numOfCharacters; ++i) {
     let framingOption = formData.get(`framing_${i}`);
-    if (highestFramingCost < framingCosts[framingOption]) {
-      highestFramingCost = framingCosts[framingOption];
+    if (highestFramingCost < framingPrices[framingOption]) {
+      highestFramingCost = framingPrices[framingOption];
       highestFramingOption = framingOption;
     }
   }
@@ -79,8 +94,8 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   let skippedHighest = false;
   for (let i = 0; i <= numOfCharacters; ++i) {
     let framingOption = formData.get(`framing_${i}`);
-    if (highestFramingCost != framingCosts[framingOption] || skippedHighest) {
-      total += framingCosts[framingOption] * 0.65; // discount
+    if (highestFramingCost != framingPrices[framingOption] || skippedHighest) {
+      total += framingPrices[framingOption] * 0.65; // discount
       overview.framingOptions.discounted.push(framingOption);
     } else {
       skippedHighest = true;
@@ -90,25 +105,25 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   // addons
   // backgrounds
   let background = formData.get("background");
-  total += addonsCosts.backgrounds[background];
+  total += addonsPrices.backgrounds[background];
   overview.addons.background = background;
 
   // props
   let props = formData.get("props");
   if (props > 3) {
-    total += addonsCosts.props * (props - 3);
+    total += addonsPrices.props * (props - 3);
   }
   overview.addons.props = props;
 
   // shading
   if (formData.get("shading") == "on") {
-    total += addonsCosts.shading * (numOfCharacters + 1);
+    total += addonsPrices.shading * (numOfCharacters + 1);
     overview.addons.shading = true;
   }
 
   // no color
   if (formData.get("no color") == "on") {
-    total -= addonsCosts.noColor * (numOfCharacters + 1);
+    total -= addonsPrices.noColor * (numOfCharacters + 1);
     overview.addons.noColor = true;
   }
 
@@ -144,28 +159,28 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
 
   // highest framing option
   item = `${overview.framingOptions.mostExpensive}`;
-  cost = `$${framingCosts[overview.framingOptions.mostExpensive]}`;
+  cost = `$${framingPrices[overview.framingOptions.mostExpensive]}`;
   appendEntry(item, cost, null);
 
   // discounted framing options
   for (let i = 0; i < overview.framingOptions.discounted.length; ++i) {
     item = `${overview.framingOptions.discounted[i]}`;
-    cost = `$${framingCosts[overview.framingOptions.discounted[i]] * 0.65}`;
-    math = `(65% of $${framingCosts[overview.framingOptions.discounted[i]]})`;
+    cost = `$${framingPrices[overview.framingOptions.discounted[i]] * 0.65}`;
+    math = `(65% of $${framingPrices[overview.framingOptions.discounted[i]]})`;
     appendEntry(item, cost, math);
   }
 
   if (overview.addons.shading) {
     item = "Shading";
-    cost = `$${addonsCosts.shading * (numOfCharacters + 1)}`;
-    math = `($${addonsCosts.shading} per character)`;
+    cost = `$${addonsPrices.shading * (numOfCharacters + 1)}`;
+    math = `($${addonsPrices.shading} per character)`;
     appendEntry(item, cost, math);
   }
 
   if (overview.addons.noColor) {
     item = "No Color";
-    cost = `-$${addonsCosts.noColor * (numOfCharacters + 1)}`;
-    math = `(-$${addonsCosts.noColor} per character)`;
+    cost = `-$${addonsPrices.noColor * (numOfCharacters + 1)}`;
+    math = `(-$${addonsPrices.noColor} per character)`;
     appendEntry(item, cost, math);
   }
 
@@ -179,18 +194,18 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
     } else if (background == "Complex Scene") {
       item = "Complex Scene";
     }
-    cost = `$${addonsCosts.backgrounds[background]}`;
+    cost = `$${addonsPrices.backgrounds[background]}`;
     appendEntry(item, cost, null);
   }
 
   if (overview.addons.props > 0) {
     item = `${overview.addons.props} Props`;
     if (overview.addons.props > 3) {
-      cost = `$${addonsCosts.props * (overview.addons.props - 3)}`;
+      cost = `$${addonsPrices.props * (overview.addons.props - 3)}`;
     } else {
       cost = "$0";
     }
-    math = `($${addonsCosts.props} each, first 3 are free)`;
+    math = `($${addonsPrices.props} each, first 3 are free)`;
     appendEntry(item, cost, math);
   }
 
@@ -227,28 +242,28 @@ function copyResults() {
 
   // highest framing option
   item = `${overview.framingOptions.mostExpensive}`;
-  cost = `$${framingCosts[overview.framingOptions.mostExpensive]}`;
+  cost = `$${framingPrices[overview.framingOptions.mostExpensive]}`;
   appendEntry(item, cost, null);
 
   // discounted framing options
   for (let i = 0; i < overview.framingOptions.discounted.length; ++i) {
     item = `${overview.framingOptions.discounted[i]}`;
-    cost = `$${framingCosts[overview.framingOptions.discounted[i]] * 0.65}`;
-    math = `(65% of $${framingCosts[overview.framingOptions.discounted[i]]})`;
+    cost = `$${framingPrices[overview.framingOptions.discounted[i]] * 0.65}`;
+    math = `(65% of $${framingPrices[overview.framingOptions.discounted[i]]})`;
     appendEntry(item, cost, math);
   }
 
   if (overview.addons.shading) {
     item = "Shading";
-    cost = `$${addonsCosts.shading * (numOfCharacters + 1)}`;
-    math = `($${addonsCosts.shading} per character)`;
+    cost = `$${addonsPrices.shading * (numOfCharacters + 1)}`;
+    math = `($${addonsPrices.shading} per character)`;
     appendEntry(item, cost, math);
   }
 
   if (overview.addons.noColor) {
     item = "No Color";
-    cost = `-$${addonsCosts.noColor * (numOfCharacters + 1)}`;
-    math = `(-$${addonsCosts.noColor} per character)`;
+    cost = `-$${addonsPrices.noColor * (numOfCharacters + 1)}`;
+    math = `(-$${addonsPrices.noColor} per character)`;
     appendEntry(item, cost, math);
   }
 
@@ -262,18 +277,18 @@ function copyResults() {
     } else if (background == "Complex Scene") {
       item = "Complex Scene";
     }
-    cost = `$${addonsCosts.backgrounds[background]}`;
+    cost = `$${addonsPrices.backgrounds[background]}`;
     appendEntry(item, cost, null);
   }
 
   if (overview.addons.props > 0) {
     item = `${overview.addons.props} Props`;
     if (overview.addons.props > 3) {
-      cost = `$${addonsCosts.props * (overview.addons.props - 3)}`;
+      cost = `$${addonsPrices.props * (overview.addons.props - 3)}`;
     } else {
       cost = "$0";
     }
-    math = `($${addonsCosts.props} each, first 3 are free)`;
+    math = `($${addonsPrices.props} each, first 3 are free)`;
     appendEntry(item, cost, math);
   }
 

@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <script src="pricesheet.js"></script>
+    <script src="dropdown.js"></script>
     <main>
       <a class="backButton" href="index.html"><i class="fa-solid fa-angle-left"></i></a>
       <div class="priceSheet">
@@ -38,7 +38,7 @@
           <!-- HEADSHOT -->
           <div id="headshot" onclick="toggleDropper('headshot'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Headshot</h1>
-            <h1 class="cost">$35</h1>
+            <h1 id="headshot_cost" class="cost">$35</h1>
             <p class="description">
               Also called a closeup. Shows the head and shoulder area.
             </p>
@@ -55,7 +55,7 @@
           <!-- BUST -->
           <div id="bust" onclick="toggleDropper('bust'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Bust</h1>
-            <h1 class="cost">$40</h1>
+            <h1 id="bust_cost" class="cost">$40</h1>
             <p class="description">
               Also called a medium closeup. Shows the elbow/chest area and above.
             </p>
@@ -72,7 +72,7 @@
           <!-- HALFBODY -->
           <div id="halfbody" onclick="toggleDropper('halfbody'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Halfbody</h1>
-            <h1 class="cost">$45</h1>
+            <h1 id="halfbody_cost" class="cost">$45</h1>
             <p class="description">
               Also called a mid shot. Shows about half the character; belly area and above. 
             </p>
@@ -87,7 +87,7 @@
           <!-- THIGHUP -->
           <div id="thighup" onclick="toggleDropper('thighup'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Thighup</h1>
-            <h1 class="cost">$50</h1>
+            <h1 id="thighup_cost" class="cost">$50</h1>
             <p class="description">
               Also called a medium full shot. Shows the thigh/knee area and above.
             </p>
@@ -102,7 +102,7 @@
           <!-- FULLBODY -->
           <div id="fullbody" onclick="toggleDropper('fullbody'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Fullbody</h1>
-            <h1 class="cost">$55</h1>
+            <h1 id="fullbody_cost" class="cost">$55</h1>
             <p class="description">
               Also called a full shot. Shows your entire character in full and in focus.
             </p>
@@ -140,7 +140,7 @@
           <!-- SHADING -->
           <div id="shading" onclick="toggleDropper('shading'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Shading</h1>
-            <h1 class="cost">+ $10 per character</h1>
+            <h1 id="shading_cost" class="cost">+ $10 per character</h1>
             <p class="description">
               Adds light and shadow to the drawing. Color/style/atmosphere suggestions are always welcome!
             </p>
@@ -157,7 +157,7 @@
           <!-- PROPS -->
           <div id="props" onclick="toggleDropper('props'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Props</h1>
-            <h1 class="cost">+ $8</h1>
+            <h1 id="props_cost" class="cost">+ $8</h1>
             <p class="description">
               First three props are free by default! This is the price for the fourth one and above. Props are any non-character item that is included in the piece or smaller closeups (AKA inserts) of a character.
             </p>
@@ -175,7 +175,7 @@
           <!-- ABSTRACT -->
           <div id="abstract_background" onclick="toggleDropper('abstract_background'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Abstract Background</h1>
-            <h1 class="cost">+ $10</h1>
+            <h1 id="abstract_background_cost" class="cost">+ $10</h1>
             <p class="description">
               Examples include simple repeating patterns, graphics, et cetera. Anything that doesn't resemble a concrete environment or location.
             </p>
@@ -190,7 +190,7 @@
           <!--  SCENE -->
           <div id="simple_scene" onclick="toggleDropper('simple_scene'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Scenic Background</h1>
-            <h1 class="cost">+ $25</h1>
+            <h1 id="simple_scene_background_cost" class="cost">+ $25</h1>
             <p class="description">
               Puts your character into a simplified environment.
             </p>
@@ -207,7 +207,7 @@
           <!-- 3D REFERENCE SHEET -->
           <div id="unclear_reference_fee" onclick="toggleDropper('unclear_reference_fee'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>Unclear Reference Fee</h1>
-            <h1 class="cost">+ $8 or $12</h1>
+            <h1 id="unclear_reference_cost" class="cost">+ $8 or $12</h1>
             <p class="description">
 
               If the reference provided is a fursuit photo, screenshot of a 3D model, traditional drawing, shaded reference sheet, or similar, the higher fee will be added, as these kinds of references can be unclear in design and color. If you provide a digital color palette, this lowers to the smaller fee.
@@ -225,7 +225,7 @@
           <!-- NO COLOR -->
           <div id="no_color" onclick="toggleDropper('no_color'); event.stopPropagation();" class="listing dropper">
             <h1 class="title"><i class="dropperIndicator fa-solid fa-caret-down"></i>No Color</h1>
-            <h1 class="cost">- $8 per character</h1>
+            <h1 id="no_color_cost" class="cost">- $8 per character</h1>
             <p class="description">
               Looking for an empty sketch/lineart instead? Take this amount away from the base price, per character!
             </p>
@@ -249,6 +249,7 @@
 		<button id="image_viewer_right_btn" onClick="viewerRight()"><i class="fa-solid fa-chevron-right"></i></button>
 		<button id="image_viewer_quit_btn" onclick="quitViewer()"><i class="fa-solid fa-x"></i></button>
 	</div>
+    <script src="placePrices.js"></script>
     <script src="footer.js"></script>
   </body>
 </html>
