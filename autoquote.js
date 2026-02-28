@@ -44,9 +44,9 @@ let overview = {
   },
   addons: {
     background: "",
-    props: 0,
-    shading: false,
-    noColor: false
+    Props: 0,
+    Shading: false,
+    "No Color": false
   },
   details: ""
 };
@@ -66,9 +66,9 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   overview.framingOptions.mostExpensive = "";
   overview.framingOptions.discounted = [];
   overview.addons.background = "";
-  overview.addons.props = 0;
-  overview.addons.shading = false;
-  overview.addons.noColor = false;
+  overview.addons.Props = 0;
+  overview.addons.Shading = false;
+  overview.addons["No Color"] = false;
   overview.details = "";
   total = 0;
 
@@ -108,21 +108,21 @@ document.getElementById("autoquote_form").addEventListener("submit", function(e)
   total += addonsPrices.backgrounds[background];
   overview.addons.background = background;
 
-  // props
-  let props = formData.get("props");
-  if (props > 3) {
-    total += addonsPrices.Props * (props - 3);
+  // Props
+  let Props = formData.get("Props");
+  if (Props > 3) {
+    total += addonsPrices.Props * (Props - 3);
   }
-  overview.addons.Props = props;
+  overview.addons.Props = Props;
 
-  // shading
-  if (formData.get("shading") == "on") {
+  // Shading
+  if (formData.get("Shading") == "on") {
     total += addonsPrices.Shading * (numOfCharacters + 1);
     overview.addons.Shading = true;
   }
 
   // no color
-  if (formData.get("no color") == "on") {
+  if (formData.get("No Color") == "on") {
     total -= addonsPrices["No Color"] * (numOfCharacters + 1);
     overview.addons["No Color"] = true;
   }
@@ -253,17 +253,17 @@ function copyResults() {
     appendEntry(item, cost, math);
   }
 
-  if (overview.addons.shading) {
+  if (overview.addons.Shading) {
     item = "Shading";
-    cost = `$${addonsPrices.shading * (numOfCharacters + 1)}`;
-    math = `($${addonsPrices.shading} per character)`;
+    cost = `$${addonsPrices.Shading * (numOfCharacters + 1)}`;
+    math = `($${addonsPrices.Shading} per character)`;
     appendEntry(item, cost, math);
   }
 
-  if (overview.addons.noColor) {
+  if (overview.addons.NoColor) {
     item = "No Color";
-    cost = `-$${addonsPrices.noColor * (numOfCharacters + 1)}`;
-    math = `(-$${addonsPrices.noColor} per character)`;
+    cost = `-$${addonsPrices.NoColor * (numOfCharacters + 1)}`;
+    math = `(-$${addonsPrices.NoColor} per character)`;
     appendEntry(item, cost, math);
   }
 
@@ -281,16 +281,18 @@ function copyResults() {
     appendEntry(item, cost, null);
   }
 
-  if (overview.addons.props > 0) {
-    item = `${overview.addons.props} Props`;
-    if (overview.addons.props > 3) {
-      cost = `$${addonsPrices.props * (overview.addons.props - 3)}`;
+  if (overview.addons.Props > 0) {
+    item = `${overview.addons.Props} Props`;
+    if (overview.addons.Props > 3) {
+      cost = `$${addonsPrices.Props * (overview.addons.Props - 3)}`;
     } else {
       cost = "$0";
     }
-    math = `($${addonsPrices.props} each, first 3 are free)`;
+    math = `($${addonsPrices.Props} each, first 3 are free)`;
     appendEntry(item, cost, math);
   }
+
+  console.log(overview);
 
   result += `TOTAL  -  ${currency.format(total)}\n`;
 
