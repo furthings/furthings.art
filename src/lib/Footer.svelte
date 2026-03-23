@@ -81,7 +81,7 @@ footer a:hover i, footer a:hover img {
 		<i class="fa-brands fa-discord"></i>
 	</a>
 	<!-- telegram -->
-	<a href="/about" aria-label="Fade's Telegram">
+	<a href="{base}/about" aria-label="Fade's Telegram">
 		<i class="fa-brands fa-telegram"></i>
 	</a>
 	<!-- artfight -->
