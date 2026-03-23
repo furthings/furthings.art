@@ -1,4 +1,5 @@
 <script lang="ts">
+import { base } from "$app/paths";
 </script>
 <style>
 a {
@@ -13,6 +14,6 @@ a:hover {
   color: var(--orange);
 }
 </style>
-<a href="/" aria-label="Home">
+<a href="{base}/" aria-label="Home">
 	<i class="fa-solid fa-angle-left"></i>
 </a>
