@@ -1,6 +1,7 @@
 <script lang="ts">
 // import images
 // import WhipmerImg from "$lib/images/whimper.png";
+import { base } from "$app/paths";
 import PiperImg from "$lib/images/Piper.png";
 import Footer from "$lib/Footer.svelte";
 </script>
@@ -62,10 +63,10 @@ nav a:hover {
 	<!-- WHIMPER.PNG -->
 	<!-- <img id="home_logo" src={ WhipmerImg }> -->
 	<nav>
-		<a href="/prices">Price Sheet</a>
-		<a href="/autoquote">Auto Quote</a>
-		<a href="/about">About Me</a>
-		<a href="/tos">Terms of Service</a>
+		<a href="{base}/prices">Price Sheet</a>
+		<a href="{base}/autoquote">Auto Quote</a>
+		<a href="{base}/about">About Me</a>
+		<a href="{base}/tos">Terms of Service</a>
 	</nav>
 </main>
 <Footer />

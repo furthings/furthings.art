@@ -1,5 +1,6 @@
 <script lang="ts">
 import type { PageProps } from "./$types";
+import { base } from "$app/paths";
 import Footer from "$lib/Footer.svelte";
 import HomeButton from "$lib/HomeButton.svelte";
 const { data }: PageProps = $props();
@@ -326,7 +327,7 @@ form .row:first-of-type label button:hover {
 		<p class="centerText">
 			Ordering from me assumes that you have read, understood, and agreed to the conditions linked below.
 		</p>
-		<a href="/tos">Terms of Service</a>
+		<a href="{base}/tos">Terms of Service</a>
 	</div>
 	<p class="bodyText centerText">
 		Curious to see how much a commission may cost but don't want to do the math yourself? Fill out this form and a price estimate will be automatically generated for you!

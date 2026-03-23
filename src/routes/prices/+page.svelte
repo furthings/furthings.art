@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { PageProps } from "./$types";
 const { data }: PageProps = $props();
+import { base } from "$app/paths";
 import Footer from "$lib/Footer.svelte";
 import Price from "$lib/Price.svelte";
 import HomeButton from "$lib/HomeButton.svelte";
@@ -78,7 +79,7 @@ function getImage(filename: string) {
 		<p class="centerText">
 			Ordering from me assumes that you have read, understood, and agreed to the conditions linked below.
 		</p>
-		<a href="/tos">Terms of Service</a>
+		<a href="{base}/tos">Terms of Service</a>
 	</div>
 
 	<!-- BASE FRAMING PRICE LISTINGS -->
