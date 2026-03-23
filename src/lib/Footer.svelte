@@ -1,10 +1,6 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import { base } from "$app/paths";
-	import FA_logo from '$lib/images/footer/fa-logo.svg';
-	import ToyouseLogo from '$lib/images/footer/toyhouse_icon.svg';
-	import KofiLogo from '$lib/images/footer/kofi-logo.svg';
-	import AF_logo from '$lib/images/footer/af-logo.svg';
 </script>
 
 <style>
@@ -53,7 +49,7 @@ footer a:hover i, footer a:hover img {
 	</a>
 	<!-- fur affinity -->
 	<a href="https://www.furaffinity.net/user/furthings#" aria-label="Fade's Furaffinity">
-		<img src={ FA_logo } alt="Furaffinity logo"/>
+		<img src={base + "/images/footer/fa-logo.svg"} alt="Furaffinity logo"/>
 	</a>
 	<!-- instagram -->
 	<a href="https://www.instagram.com/furthingsart/" aria-label="Fade's Instagram">
@@ -62,7 +58,7 @@ footer a:hover i, footer a:hover img {
 	<!-- tumblr? go here -->
 	<!-- toyhouse -->
 	<a href="https://toyhou.se/furthings" aria-label="Fade's Toyhouse">
-		<img src={ ToyouseLogo } alt="Toyhouse logo"/>
+		<img src={base + "/images/footer/toyhouse_icon.svg"} alt="Toyhouse logo"/>
 	</a>
 	<!-- paypal -->
 	<a href="https://paypal.me/Avrey" aria-label="Fade's Paypal">
@@ -70,7 +66,7 @@ footer a:hover i, footer a:hover img {
 	</a>
 	<!-- kofi -->
 	<a href="https://ko-fi.com/furthings" aria-label="Fade's Ko-fi">
-		<img src={ KofiLogo } alt="Ko-fi logo"/>
+		<img src={base + "/images/footer/kofi-logo.svg"} alt="Ko-fi logo"/>
 	</a>
 	<!-- etsy -->
 	<a href="https://www.etsy.com/shop/furthingsart" aria-label="Fade's Etsy">
@@ -86,6 +82,6 @@ footer a:hover i, footer a:hover img {
 	</a>
 	<!-- artfight -->
 	<a href="https://artfight.net/~furthings" aria-label="Fade's Artfight">
-		<img src={ AF_logo } alt="Artfight logo"/>
+		<img src={base + "/images/footer/af-logo.svg"} alt="Artfight logo"/>
 	</a>
 </footer>

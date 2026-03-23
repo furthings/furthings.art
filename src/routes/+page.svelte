@@ -1,12 +1,4 @@
 <script lang="ts">
-const IMAGES = import.meta.glob(
-	"$lib/images/other/*.{png,gif}", {
-		eager: true,
-		query: {
-			enhanced: true
-		}
-	}
-)
 import { base } from "$app/paths";
 import Footer from "$lib/Footer.svelte";
 </script>
@@ -62,11 +54,11 @@ nav a:hover {
       <a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
 	  <a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
-		  <img id="home_logo" src={ IMAGES["/src/lib/images/other/Piper.png"].default } style="margin-bottom: 8px" alt="Piper Fundraiser">
+		  <img id="home_logo" src={base + "/images/Piper.png"} style="margin-bottom: 8px" alt="Piper Fundraiser">
 	  </a>
 		
 	<!-- WHIMPER.PNG -->
-	<!-- <img id="home_logo" src={ WhipmerImg }> -->
+	<!-- <img id="home_logo" src="images/whimper.png"> -->
 	<nav>
 		<a href="{base}/prices">Price Sheet</a>
 		<a href="{base}/autoquote">Auto Quote</a>
