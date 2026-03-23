@@ -1,0 +1,203 @@
+<script lang="ts">
+	import Footer from "$lib/Footer.svelte";
+	import HomeButton from "$lib/HomeButton.svelte";
+</script>
+
+<style>
+	@import '$lib/SharedStyles.css';
+	.tosSection {
+		color: var(--orange);
+		font-size: 14pt;
+		margin: 0 32px;
+		counter-reset: bullet 0;
+		counter-increment: section 1;
+	}
+	.tosDirectory {
+		counter-increment: section 0;
+		color: var(--text_red);
+	}
+	.bullet {
+		counter-reset: subbullet 0;
+		counter-increment: bullet;
+	}
+	.subbullet {
+		counter-increment: subbullet;
+		margin-left: 96px;
+	}
+	.tosSection::before {
+		content: counter(section) ".0 - ";
+	}
+	.bullet::before, .subbullet::before {
+		color: var(--orange);
+		font-weight: bold;
+		margin-right: 4px;
+	}
+	.bullet::before {
+		content: counter(section) "." counter(bullet);
+	}
+	.subbullet::before {
+		content: counter(section) "." counter(bullet) counter(subbullet, lower-alpha);
+	}
+</style>
+
+<main>
+	<HomeButton />
+	<h1 class="largeTitle centerText bigLines">TERMS OF SERVICE</h1>
+	<p class="bodyText centerText" style="margin: 0;"><em>Last Updated 03/03/26</em></p>
+	<h1 class="tosDirectory tosSection">DIRECTORY</h1>
+	<p class="bullet bodyText">
+		<a href="#payment">Payment</a>
+	</p>
+	<p class="bullet bodyText">
+		<a href="#process">Process</a>
+	</p>
+	<p class="bullet bodyText">
+		<a href="#me">What I Can and Can Not Do</a>
+	</p>
+	<p class="bullet bodyText">
+		<a href="#you">What You Can and Can Not Do</a>
+	</p>
+	<p class="bullet bodyText">
+		<a href="#designs">Character Designs</a>
+	</p>
+	<p class="bullet bodyText">
+		<a href="#bases">Premade Bases</a>
+	</p>
+
+	<!-- PAYMENT -->
+	<h1 id="payment" class="tosSection">PAYMENT</h1>
+	<p class="bullet bodyText">
+		My prices fluctuate regularly based on factors like demand, motivation, free time, and personal finances. They may change with no notice at any time. Whatever is listed on this website will be the most current and up-to-date unless explicitly stated otherwise in the event of discounts and sales.
+	</p>
+	<p class="bullet bodyText">
+		Prices may vary. The ones listed are used as an average or base reference. Send me a message with your prompt if you would like an exact quote.
+	</p>
+	<p class="bullet bodyText">
+		I primarily accept payments through PayPal, Ko-Fi, and Etsy. There is no guarantee I can make other payment methods work but I will try if needed.
+	</p>
+	<p class="bullet bodyText">
+		I reserve the right to refuse or cancel a commission at any time for any reason.
+	</p>
+	<p class="bullet bodyText">
+		You will be asked to pay in full before I start.
+	</p>
+	<p class="bullet bodyText">
+		If you do not have a clear visual reference for your character, you will be charged a character designing fee that will vary based on the prompt given. See <a href="#designs">5.0 - CHARACTER DESIGNS</a> below for more details.
+	</p>
+	<p class="bullet bodyText">
+		Usually, I can offer refunds for abandoned or cancelled commissions, but I am currently in an emergency commission state. This means I can not offer any refunds, period. Please visit the <a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l">emergency commissions post</a> on my home page for more details.<br/>
+		<s>
+			Refunds may be given on cancelled commissions depending on current progress. A simple guideline for how refund amounts are calculated are as follows: Full refunds are given to any stages that were paid for but not started. Stages that were started but not completed will be refunded a percentage of that stage based on level of completion. Stages that were completed will not be refunded. Refund amounts may vary.
+		</s>
+	</p>
+
+	<!-- PROCESS -->
+	<h1 id="process" class="tosSection">PROCESS</h1>
+	<p class="bullet bodyText">
+		The drawing and check-in process will occur in stages/passes: blocking, lining, coloring, and shading. Not all commissions require all stages.
+	</p>
+	<p class="subbullet bodyText">
+		The blocking stage is my alternative to a sketching stage. It is defined as a lineless "color blob" pass of your character(s). Colored shapes are used to define the body instead of linework, so the colors will not be accurate to your character(s) at this stage. Things may look odd right now, but trust the process!
+	</p>
+	<p class="subbullet bodyText">
+		The lining stage is defined as a refined lined pass of your character(s). The lines may remain sketchy in some areas because I prefer that more expressive style, but there will be no obvious disruptions to the drawing.
+	</p>
+	<p class="subbullet bodyText">
+		The coloring stage is defined as a cleaned and colored rendering of your character(s).
+	</p>
+	<p class="subbullet bodyText">
+		The shading stage is defined as a cleaned, colored, and shaded rendering of your character(s).
+	</p>
+	<p class="bullet bodyText">
+		After each pass, I will send a work-in-progress (WIP) image to check in and make sure the piece is turning out how you want. I will make a maximum of 5 small changes after each stage. If the commissioner has approved a stage or if 5 small changes have been made to that stage, that aspect of the drawing will not be revised in future passes.
+	</p>
+	<p class="bullet bodyText">
+		You may ask for updates and progress screenshots at any time, even outside of the automatic check-ins I perform.
+	</p>
+	<p class="bullet bodyText">
+		Redlining (the act of drawing over an image for correction/demonstration purposes) my WIP images is encouraged. Providing any outside supplemental images is also encouraged to give me the best idea of what you are looking for.
+	</p>
+	<p class="bullet bodyText">
+		"Doodle" commission types do not follow the above process, but are instead delivered without any commissioner input, excluding the initial prompt. I will not make any changes retroactively unless I need to fix a mistake that was my fault (ex. a missing design feature). They are so cheap because they are quick, messy, and do not go through the normal design process my other commissions typically would.
+	</p>
+
+	<!-- WHAT I CAN AND CAN NOT DO -->
+	<h1 id="me" class="tosSection">WHAT I CAN AND CAN NOT DO</h1>
+	<p class="bullet bodyText">
+		I will attempt most species. For bipedal non-human characters, I will draw the character's legs consistent with the reference unless otherwise requested (digitigrade vs plantigrade, etc.) or I'll choose if neither are supplied.
+	</p>
+	<p class="bullet bodyText">
+		I will not copy other people's or company's art styles outside of eyes if specified or other specific circumstances.
+	</p>
+	<p class="bullet bodyText">
+		I reserve the right to display my work anywhere and in any way at any stage of the process unless otherwise discussed.
+	</p>
+	<p class="bullet bodyText">
+		I can not offer an estimated turnaround time for my commissions. Not because I don't want to, but it is becoming more and more apparent to me that I have severe time blindness. It is hard to conceptualize the passage of time, estimate how long something has taken, or estimate how long something will take. You can look at my Trello queue to get a better idea of how long commissions have taken in the past if this makes you uncomfortable.
+	</p>
+	<p class="bullet bodyText">
+		I am an adult and I will take on not-safe-for-work (NSFW)/18+/explicit commissions from adults only. There will be an upcharge based on the severity of the content. A specific guideline for this is still in the works so ask me directly for a proper quote.
+	</p>
+	<p class="bullet bodyText">
+		You may ask if I can do anything that is not covered in this TOS.
+	</p>
+
+	<!-- WHAT YOU CAN AND CAN NOT DO -->
+	<h1 id="you" class="tosSection">WHAT YOU CAN AND CAN NOT DO</h1>
+	<p class="bullet bodyText">
+		You may edit work of mine that you own in any manner you see fit so long as the watermark or signature remains intact and completely visible.
+	</p>
+	<p class="bullet bodyText">
+		If you did not buy it or if it does not otherwise belong to you, do not edit it!
+	</p>
+	<p class="bullet bodyText">
+		Do not claim it to be your own work outside of any edits you make.
+	</p>
+	<p class="bullet bodyText">
+		You may not use any of my work commercially unless terms have already been discussed and agreed upon prior to sending any form of payment.
+	</p>
+	<p class="bullet bodyText">
+		You may re-post my work anywhere as long as proper credit is given. Linking back to the original post and/or artist somewhere in the description or on the image itself is encouraged, but not necessary, as long as my name is mentioned as the artist in some form.
+	</p>
+
+	<!-- CHARACTER DESIGNS -->
+	<h1 id="designs" class="tosSection">CHARACTER DESIGNS</h1>
+	<p class="bullet bodyText">
+		All of the above terms still apply to character designs unless otherwise specified below (excluding <a href="#bases">6.0 - PREMADE BASES</a>). Read them before continuing if you haven’t already.
+	</p>
+	<p class="bullet bodyText">
+		You may edit the design in any way you like so long as I am still credited for the original version.
+	</p>
+	<p class="bullet bodyText">
+		You may sell/trade/gift the design for whatever you see fit. While I’d hate to see someone resell my designs for a higher price, I can’t stop them, so all I can do is ask you politely that you don’t do that. It would make me less inclined to take you on as a client in the future.
+	</p>
+	<p class="bullet bodyText">
+		Usually, I may offer some form of refund for recently returned character designs, but I am currently in an emergency commission state. This means I can not offer any refunds, period. Please visit the <a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l">emergency commissions post</a> on my home page for more details.<br>
+		<s>
+			If you find later you do not want the character anymore, you can return them to me if it has been less than a year from their creation date. I may, (not guaranteed), give you a partial or full refund based on how long it has been since purchasing and how much the design has been used.
+		</s>
+	</p>
+
+	<!-- PREMADE BASES -->
+	<h1 id="bases" class="tosSection">PREMADE BASES</h1>
+	<p class="bullet bodyText">
+		All of the above terms (excluding <a href="#designs">5.0 - CHARACTER DESIGNS</a>) still apply to premade bases unless otherwise specified below. Read them before continuing if you haven’t already.
+	</p>
+	<p class="bullet bodyText">
+		Do not redistribute the raw .PSD, .MDP, or .PNG (in the case of MSPaint-friendly bases) files of pay-to-use bases to anybody else for any reason, even if they claim to have purchased it already. They can message me if they are having issues with their purchase.
+	</p>
+	<p class="bullet bodyText">
+		Do not use my bases for “basefill commissions,” where a person sends another person money to color in a base they do not own. If that is something somebody is interested in, send them my way.
+	</p>
+	<p class="bullet bodyText">
+		You can also commission me to fill in any of my bases, with or without purchasing the base files themselves. Send me a message for a quote.
+	</p>
+	<p class="bullet bodyText">
+		You may make and sell adoptables with my bases as long as you aren’t violating 6.2 (see above).
+	</p>
+	<p class="bullet bodyText">
+		When sharing what you made with a base, you must also link back to the original base somewhere in your message or description.
+	</p>
+
+</main>
+<Footer/>
