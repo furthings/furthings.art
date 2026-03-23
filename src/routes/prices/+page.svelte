@@ -6,7 +6,7 @@ import Footer from "$lib/Footer.svelte";
 import Price from "$lib/Price.svelte";
 import HomeButton from "$lib/HomeButton.svelte";
 
-const exampleImages = import.meta.glob(
+const EXAMPLES = import.meta.glob(
 	"$lib/images/examples/*.{png,gif}", {
 		eager: true,
 		query: {
@@ -16,7 +16,7 @@ const exampleImages = import.meta.glob(
 )
 function getImage(filename: string) {
 	const pathPrefix = "/src/lib/images/examples/";
-	return exampleImages[pathPrefix + filename];
+	return EXAMPLES[pathPrefix + filename];
 }
 </script>
 

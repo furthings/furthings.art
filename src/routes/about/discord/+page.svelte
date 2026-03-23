@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Footer from "$lib/Footer.svelte";
 	import HomeButton from "$lib/HomeButton.svelte";
-	import DiscordADImg from "$lib/images/discord ad.png";
+	import DiscordADImg from "$lib/images/other/discord ad.png";
 </script>
 
 <style>

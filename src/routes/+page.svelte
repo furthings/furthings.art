@@ -1,8 +1,13 @@
 <script lang="ts">
-// import images
-// import WhipmerImg from "$lib/images/whimper.png";
+const IMAGES = import.meta.glob(
+	"$lib/images/other/*.{png,gif}", {
+		eager: true,
+		query: {
+			enhanced: true
+		}
+	}
+)
 import { base } from "$app/paths";
-import PiperImg from "$lib/images/Piper.png";
 import Footer from "$lib/Footer.svelte";
 </script>
 
@@ -57,7 +62,7 @@ nav a:hover {
       <a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
 	  <a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
-		  <img id="home_logo" src={ PiperImg } style="margin-bottom: 8px" alt="Piper Fundraiser">
+		  <img id="home_logo" src={ IMAGES["/src/lib/images/other/Piper.png"].default } style="margin-bottom: 8px" alt="Piper Fundraiser">
 	  </a>
 		
 	<!-- WHIMPER.PNG -->
