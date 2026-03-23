@@ -3,11 +3,19 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const config = {
 	preprocess: vitePreprocess(),
-	kit: { adapter: adapter() },
-	onwarn: (warning, handler) => {
-		if (warning.code.startsWith('a11y-')) return
-		handler(warning)
-	}
+	kit: {
+		appDir: 'build',
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: '404.html',
+			precompress: false,
+			strict: true
+		}),
+		paths: {
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
+		}
+	},
 };
 
 export default config;
