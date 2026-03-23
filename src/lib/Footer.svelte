@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import { base } from "$app/paths";
 	import FA_logo from '$lib/images/footer/fa-logo.svg';
 	import ToyouseLogo from '$lib/images/footer/toyhouse_icon.svg';
 	import KofiLogo from '$lib/images/footer/kofi-logo.svg';
@@ -76,7 +77,7 @@ footer a:hover i, footer a:hover img {
 		<i class="fa-brands fa-etsy"></i>
 	</a>
 	<!-- discord -->
-	<a href="/about/discord" aria-label="Fade's Discord Server">
+	<a href="{base}/about/discord" aria-label="Fade's Discord Server">
 		<i class="fa-brands fa-discord"></i>
 	</a>
 	<!-- telegram -->
