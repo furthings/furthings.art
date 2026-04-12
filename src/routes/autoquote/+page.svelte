@@ -234,15 +234,13 @@ function addCharacter() {
 }
 form {
 	display: grid;
-	grid-template-rows: repeat(1fr, 3);
 	row-gap: 16px;
 	place-items: center;
 	width: 100%;
 }
 form .row {
 	display: grid;
-	grid-template-columns: 1fr, 1fr;
-	grid-template-rows: repeat(auto-fill, minmax(auto, max-content));
+	grid-template-columns: repeat(auto-fill, minmax(auto, max-content));
 	grid-auto-flow: column;
 	column-gap: 16px;
 	place-items: center;
@@ -355,6 +353,18 @@ form .row:first-of-type label button:hover {
 }
 #controls button:last-of-type {
 	float: right
+}
+
+@media screen and (max-width: 639px) {
+	form textarea {
+		width: 80%;
+	}
+	form .row {
+		grid-template-columns: repeat(2, minmax(auto, max-content));
+		grid-auto-flow: row;
+		row-gap: 8px;
+		column-gap: 8px;
+	}
 }
 </style>
 

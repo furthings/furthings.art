@@ -121,4 +121,4 @@
 	</button>
 {/if}
 
-<Viewer bind:this={viewer} IMAGES={priceData.examples}/>
+<Viewer bind:this={viewer} IMAGES={images}/>
