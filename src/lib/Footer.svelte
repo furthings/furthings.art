@@ -6,7 +6,7 @@
 <style>
 footer {
   width: var(--main_width);
-  margin: 16px calc(50% - var(--main_width) / 2);
+  padding: 16px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-flow: column;
@@ -20,8 +20,13 @@ footer a {
   text-align: center;
 }
 
-footer a * {
+footer a img {
   width: calc(var(--main_width) / 16);
+  margin: 0;
+  padding: 0;
+}
+
+footer a i {
   font-size: var(--medium_title_size);
   margin: 0;
   padding: 0;
@@ -31,6 +36,20 @@ footer a:hover i, footer a:hover img {
   filter: brightness(200%);
   transition-duration: .1s;
   transform: scale(1.5);
+}
+@media screen and (max-width: 639px) {
+	footer {
+		padding: calc(env(safe-area-inset-bottom) + 16px) 0;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: repeat(6, 1fr);
+		row-gap: 8px;
+	}
+	footer a i {
+		font-size: var(--small_title_size);
+	}
+	footer a img {
+		width: calc(var(--main_width) / 12);
+	}
 }
 </style>
 
