@@ -1,14 +1,29 @@
 <script lang="ts">
 	import Viewer from "./Viewer.svelte";
+	import { onMount } from "svelte";
 	let { priceData }: {
 		title: string,
 		cost: string,
 		description: string,
-		examples: array<Object>
+		examples: string[]
 	} = $props();
 	const uid = $props.id();
 	let isDropped = $state(false);
+	let images: HTMLImageElement[] = [];
 	let viewer: Viewer;
+	onMount(() => {
+		const EXAMPLES = import.meta.glob(
+			"$lib/images/examples/*.{png,gif}", {
+				eager: true,
+				query: { enhanced: true }
+			}
+		);
+		priceData.examples.forEach((filename: string) => {
+			const pathPrefix = "/src/lib/images/examples/";
+			const img = EXAMPLES[pathPrefix + filename] as HTMLImageElement;
+			images.push(img);
+		})
+	});
 </script>
 
 <style>
@@ -86,10 +101,10 @@
 		<p class="listingDescription">{ priceData.description }</p>
 		<!-- EXAMPLE IMAGES -->
 		<div>
-			{#each priceData.examples as example, i}
+			{#each images as image, i}
 				<img
-					src={ example.default }
-					alt={"Example of Fade's " + priceData.title}
+					src={ image.default }
+					alt={"Example of Fade's " + image.title}
 					onclick={() => viewer.view(i)}
 				/>
 			{/each}
