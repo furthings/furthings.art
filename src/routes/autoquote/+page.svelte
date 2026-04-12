@@ -4,45 +4,69 @@ import { base } from "$app/paths";
 import Footer from "$lib/Footer.svelte";
 import HomeButton from "$lib/HomeButton.svelte";
 const { data }: PageProps = $props();
+
 let showForm: boolean = $state(true);
 // must show/hide from using CSS
 // since the form will be wiped if removed from DOM
 $effect(() => {
-	if (showForm) {
-		document.getElementById("form").style.display = "grid";
-		document.getElementById("quote").style.display = "none";
-	} else {
-		document.getElementById("quote").style.display = "grid";
-		document.getElementById("form").style.display = "none";
+	const form = document.getElementById("form") as HTMLElement | null;
+	const quote = document.getElementById("quote") as HTMLElement | null;
+	if (form != null && quote != null) {
+		if (showForm) {
+			form.style.display = "grid";
+			quote.style.display = "none";
+		} else {
+			quote.style.display = "grid";
+			form.style.display = "none";
+		}
 	}
 });
 
 type Quote = {
-	breakdown: [],
+	breakdown: string[],
 	details: string,
 	total: string
 }
 type Commission = {
-	framing: Array,
+	framing: string[],
 	background: string,
 	props: number,
 	shading: boolean,
 	noColor: boolean,
 	details: string,
 }
-function getFormData(e): Commission {
-	const formData = new FormData(e.target);
-	const com: Commission = {
-		framing: formData.getAll("framing"),
-		background: formData.get("background"),
-		props: Number(formData.get("props")),
-		shading: formData.get("shading") === "on" ? true : false,
-		noColor: formData.get("noColor") === "on" ? true : false,
-		details: formData.get("details")
-	};
-	return com;
+
+function getFormData(e: SubmitEvent): Commission | null{
+	const form = e.target as HTMLFormElement;
+	const formData: FormData = new FormData(form);
+	if (formData != null) {
+		const framing = formData.getAll("framing") as string[] | null;
+		const background = formData.get("background") as string | null;
+		const props = formData.get("props") as string | null;
+		const shading = formData.get("shading") as string | null;
+		const noColor = formData.get("noColor") as string | null;
+		const details = formData.get("details") as string | null;
+		if (framing != null &&
+			background != null &&
+			props != null &&
+			details != null) {
+			const com: Commission = {
+				framing: framing,
+				background: background,
+				props: Number(props),
+				shading: shading === "on" ? true : false,
+				noColor: noColor === "on" ? true : false,
+				details: details
+			};
+			return com;
+		}
+	}
+	console.error("Error getting form data");
+	return null;
 }
-let currentQuote: Quote = $state({});
+
+// Business logic to build a quote
+// from the HTML form
 function buildQuote(com: Commission): Quote {
 	let total: number = 0;
 	let result: Quote = {
@@ -65,17 +89,20 @@ function buildQuote(com: Commission): Quote {
 					return word[0].toUpperCase() + word.slice(1);
 				}
 			).join(' ');
-	}
+	};
 	// find framing option with highest cost 
 	// and add that cost first
-	let maxFramingCost = 0;
+	let maxFramingCost: number = 0;
 	let maxFramingOption = "";
-	com.framing.forEach((framingOption) => {
-		let framingCost = data.framing[framingOption];
-		if (framingCost > maxFramingCost) {
-			maxFramingCost = framingCost;
-			maxFramingOption = framingOption;
-		}
+	com.framing.forEach((option) => {
+		Object.entries(data.framing).forEach(([framingStyle, cost]) => {
+			if (option === framingStyle) {
+				if (maxFramingCost < cost) {
+					maxFramingCost = cost;
+					maxFramingOption = framingStyle;
+				}
+			}
+		});
 	});
 	total += maxFramingCost;
 	// quote.breakdown.push(`${prefix}${capitalize(maxFramingOption)} - $${maxFramingCost}`);
@@ -87,28 +114,36 @@ function buildQuote(com: Commission): Quote {
 		if (!skippedHighest && framingOption === maxFramingOption) {
 			skippedHighest = true;
 		} else {
-			const price: number = 0.65 * data.framing[framingOption];
-			total += price;
-			result.breakdown.push(`${capitalize(framingOption)}${delimiter}$${price}  (65% of $${data.framing[framingOption]})`);
+			Object.entries(data.framing).forEach(([framingStyle, cost]) => {
+				if (framingOption === framingStyle) {
+					const price = 0.65 * cost;
+					result.breakdown.push(`${capitalize(framingOption)}${delimiter}$${price}  (65% of $${cost})`);
+					total += price;
+				}
+			});
 		}
 	});
 	if (com.shading) {
-		const price: number = data.addons['shading'] * com.framing.length;
+		const price: number = data.addons.shading * com.framing.length;
 		total += price;
-		result.breakdown.push(`Shading${delimiter}$${price}  ($${data.addons['shading']} per character)`);
+		result.breakdown.push(`Shading${delimiter}$${price}  ($${data.addons.shading} per character)`);
 	}
 	if (com.noColor) {
 		const price: number = data.addons['no color'] * com.framing.length;
 		total -= price;
 		result.breakdown.push(`No Color${delimiter}-$${price}  (-$${data.addons['no color']} per character)`)
 	}
-	const price: number = data.backgrounds[com.background];
-	if (price > 0) { // only show if greater than zero
-		total += price;
-		result.breakdown.push(`${capitalize(com.background)} Background${delimiter}$${price}`);
-	}
+	Object.entries(data.backgrounds).forEach(([backgroundStyle, cost]) => {
+		if (com.background === backgroundStyle) {
+			const price: number = cost;
+			if (price > 0) { // only show if greater than zero
+				total += price;
+				result.breakdown.push(`${capitalize(com.background)} Background${delimiter}$${price}`);
+			}
+		}
+	});
 	if (com.props > 3) { // first three are free
-		const price: number = data.addons['props'] * (com.props - 3);
+		const price: number = data.addons.props * (com.props - 3);
 		total += price;
 		result.breakdown.push(`${com.props} Props${delimiter}$${price}  ($${data.addons['props']} each, first 3 are free)`);
 	}
@@ -119,14 +154,22 @@ function buildQuote(com: Commission): Quote {
 	result.total = "TOTAL  -  " + currency.format(total);
 	return result;
 }
-function processForm(e) {
+
+let currentQuote: Quote = $state({
+	breakdown: [],
+	details: '',
+	total: ''
+});
+function processForm(e: SubmitEvent) {
 	e.preventDefault(); // keep browser from reloading
-	let com: Commission = getFormData(e);
-	currentQuote = buildQuote(com);
-	showForm = false;
+	let com = getFormData(e) as Commission | null;
+	if (com) {
+		currentQuote = buildQuote(com);
+		showForm = false;
+	}
 }
 
-function copyQuote() {
+function copyQuote(): void {
 	let result = "FURTHINGS QUOTE OVERVIEW\n";
 	currentQuote.breakdown.forEach((item) => {
 		result += item + '\n';
@@ -292,10 +335,10 @@ form .row:first-of-type label button:hover {
 	font-size: var(--body_text_size);
 	color: var(--body_white);
 	line-height: 2;
-	text-indent: 32px;
+	margin: 8px 32px;
 }
 #controls {
-	margin: 32px 32px 0 32px;
+	margin: 8px 32px 0 32px;
 }
 #controls button {
 	background-color: var(--button_red);
@@ -411,7 +454,7 @@ form .row:first-of-type label button:hover {
 				{/each}
 			</p>
 			<h2 class="mediumTitle">{currentQuote.total}</h2>
-			<p id="extra-details"><strong>Extra Details:</strong> {currentQuote.details}</p>
+			<p><strong>Extra Details:</strong> {currentQuote.details}</p>
 		</div>
 		<div id="controls">
 			<button onclick={() => showForm = true}><i class="fa-solid fa-angle-left"></i>Go Back</button>

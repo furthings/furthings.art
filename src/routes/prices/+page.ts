@@ -1,7 +1,6 @@
 import type { PageLoad } from "./$types";
-import { fetchPrices } from "$lib/FetchPrices.ts";
+import { FetchPrices } from "$lib/FetchPrices.ts";
 
-export const load: PageLoad = async ({ fetch, params }) => {
-	const prices = await fetchPrices(fetch);
-	return prices;
+export const load: PageLoad = ({ fetch, _ }) => {
+	return FetchPrices(fetch);
 };
