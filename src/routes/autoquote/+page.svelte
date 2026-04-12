@@ -125,13 +125,16 @@ function processForm(e) {
 	currentQuote = buildQuote(com);
 	showForm = false;
 }
+
 function copyQuote() {
 	let result = "FURTHINGS QUOTE OVERVIEW\n";
 	currentQuote.breakdown.forEach((item) => {
 		result += item + '\n';
 	})
-	result += currentQuote.total + '\n';
-	result += `Prompt  -  ${currentQuote.details}`;
+	if (currentQuote.details != "[Empty]") {
+		result += `\nPrompt  -  ${currentQuote.details}`;
+	}
+	result += `${currentQuote.total}`;
 	navigator.clipboard.writeText(result);
 }
 
