@@ -276,24 +276,20 @@ form .row:first-of-type label button:hover {
 }
 #quote #breakdown {
 	min-height: 224px;
-	width: max-content;
 	display: grid;
-	place-content: center;
-	place-self: center;
+	align-content: center;
 }
 #breakdown h1 {
 	font-size: 14pt;
 }
 #breakdown h2 {
 	font-size: 12pt;
-	white-space: pre;
 }
 #breakdown p {
 	font-size: var(--body_text_size);
-	white-space: pre;
 	color: var(--body_white);
 	line-height: 2;
-	margin-left: 32px;
+	text-indent: 32px;
 }
 #controls {
 	margin: 32px 32px 0 32px;
@@ -412,7 +408,7 @@ form .row:first-of-type label button:hover {
 				{/each}
 			</p>
 			<h2 class="mediumTitle">{currentQuote.total}</h2>
-			<p><strong>Extra Details:</strong> {currentQuote.details}</p>
+			<p id="extra-details"><strong>Extra Details:</strong> {currentQuote.details}</p>
 		</div>
 		<div id="controls">
 			<button onclick={() => showForm = true}><i class="fa-solid fa-angle-left"></i>Go Back</button>
