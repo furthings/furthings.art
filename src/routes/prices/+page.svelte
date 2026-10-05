@@ -188,7 +188,7 @@ import HomeButton from "$lib/HomeButton.svelte";
 		<Price priceData={{
 			title: "Scenic Background",
 			cost: `$${data.backgrounds['scenic']}`,
-			description: "Puts your character into a simplified environment.",
+			description: "Puts your character into an environment.",
 			examples: [
 				"scene 1.png",
 				"scene 2.png",
