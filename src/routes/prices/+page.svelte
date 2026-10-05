@@ -201,7 +201,7 @@ import HomeButton from "$lib/HomeButton.svelte";
 		<Price priceData={{
 			title: "Unclear Reference Fee",
 			cost: `+ $${data.addons["unclear reference"][0]} or $${data.addons["unclear reference"][1]}`,
-			description: "If the reference provided is a fursuit photo, screenshot of a 3D model, traditional drawing, shaded reference sheet, or similar, the higher fee will be added, as these kinds of references can be unclear in design and color. If you provide a digital color palette, this lowers to the smaller fee.",
+			description: "If the reference provided is a fursuit photo, screenshot of a 3D model, traditional drawing, shaded reference sheet, or similar, the higher fee will be added, as these kinds of references can be unclear in design and color. If you also provide a digital color palette, this lowers to the smaller fee.",
 			examples: [
 				"coming soon.png",
 				"coming soon.png",
