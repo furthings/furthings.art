@@ -42,9 +42,8 @@ nav a:hover {
 <main>
 	<h1 class="largeTitle centerText bigLines">FURTHINGS COMMISSION HUB</h1>
 
-	<!-- COMMISSIONS OPEN -->
-	<!-- <a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText">
-		COMMISSIONS ARE OPEN!<br/></a> -->
+	<a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText">
+		COMMISSIONS ARE OPEN ON VGEN ONLY (until I get verified)!<br/></a>
 
 	<!-- SPECIFIC OPENINGS -->
 	<!-- <a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText underlineHover" href="https://ko-fi.com/c/f8c7b2d012">
