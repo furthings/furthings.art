@@ -169,7 +169,7 @@
 		You may edit the design in any way you like so long as I am still credited for the original version.
 	</p>
 	<p class="bullet bodyText">
-		You may sell/trade/gift the design for whatever you see fit. While I’d hate to see someone resell my designs for a higher price, I can’t stop them, so all I can do is ask you politely that you don’t do that. It would make me less inclined to take you on as a client in the future.
+		You may sell/trade/gift the design for whatever you see fit <i>AS LONG AS EXTRA VALUE HAS BEEN ADDED TO THE DESIGN</i>. If you did not add anything, you can not sell it for greater than you bought it. You cannot profit off of my work.
 	</p>
 	<p class="bullet bodyText">
 		Usually, I may offer some form of refund for recently returned character designs, but I am currently in an emergency commission state. This means I can not offer any refunds, period. Please visit the <a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l">emergency commissions post</a> on my home page for more details.<br>
