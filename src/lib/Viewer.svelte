@@ -86,14 +86,14 @@
 {#if running}
 	<div id={uid} class="viewer" onclick={clickHandler}>
 		<button onclick={ prev }><i class="fa-solid fa-chevron-left"></i></button>
-		<img class="currentImage" src={IMAGES[current].default} alt={ "Example" }/>
+		<img class="currentImage" src={IMAGES[current]} alt={ "Example" }/>
 		<button onclick={ next }><i class="fa-solid fa-chevron-right"></i></button>
 		<div class="viewerImages">
 			{#each IMAGES as example, i}
 				{#if current === i}
-					<img class="active" src={ example.default } alt={"Example"} onclick={() => view(i)}/>
+					<img class="active" src={ example } alt={"Example"} onclick={() => view(i)}/>
 				{:else}
-					<img src={ example.default } alt={"Example"} onclick={() => view(i)}/>
+					<img src={ example } alt={"Example"} onclick={() => view(i)}/>
 				{/if}
 			{/each}
 		</div>
