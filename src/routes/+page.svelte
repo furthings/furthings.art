@@ -52,7 +52,7 @@ nav a:hover {
 	<a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
 	<a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
-		<img id="home_logo" src={base + "/images/Piper.png"} style="margin-bottom: 8px" alt="Piper Fundraiser">
+		<img id="home_logo" src={"/images/Piper.png"} style="margin-bottom: 8px" alt="Piper Fundraiser">
 	</a>
 		
 	<!-- WHIMPER.PNG -->
