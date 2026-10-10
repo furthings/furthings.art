@@ -1,12 +1,7 @@
 <script lang="ts">
 	import Viewer from "./Viewer.svelte";
 	import { onMount } from "svelte";
-	let {
-		title,
-		cost,
-		description,
-		examples,
-	}: {
+	let { priceData }: {
 		title: string,
 		cost: string,
 		description: string,
@@ -14,7 +9,7 @@
 	} = $props();
 	const uid = $props.id();
 	let isDropped = $state(false);
-	let images: string[] = [];
+	let images: HTMLImageElement[] = [];
 	let viewer: Viewer;
 	onMount(() => {
 		const EXAMPLES = import.meta.glob(
@@ -23,9 +18,10 @@
 				query: { enhanced: true }
 			}
 		);
-		examples.forEach((filename: string) => {
+		priceData.examples.forEach((filename: string) => {
 			const pathPrefix = "/src/lib/images/examples/";
-			images.push(pathPrefix + filename);
+			const img = EXAMPLES[pathPrefix + filename] as HTMLImageElement;
+			images.push(img);
 		})
 	});
 </script>
@@ -99,16 +95,16 @@
 	<button type="button" id={uid} class="active listing" onclick={() => isDropped = !isDropped}>
 		<h1 class="listingTitle">
 			<i class="fa-solid fa-caret-down"></i>
-			{ title }
+			{ priceData.title }
 		</h1>
-		<h1 class="listingCost">{cost}</h1>
-		<p class="listingDescription">{ description }</p>
+		<h1 class="listingCost">{priceData.cost}</h1>
+		<p class="listingDescription">{ priceData.description }</p>
 		<!-- EXAMPLE IMAGES -->
 		<div>
-			{#each images as img, i}
+			{#each images as image, i}
 				<img
-					src={ img }
-					alt="Example of Fade's art"
+					src={ image.default }
+					alt={"Example of Fade's " + image.title}
 					onclick={() => viewer.view(i)}
 				/>
 			{/each}
@@ -118,10 +114,10 @@
 	<button type="button" id={uid} class="listing" onclick={() => isDropped = !isDropped}>
 		<h1>
 			<i class="fa-solid fa-caret-right"></i>
-			{ title }
+			{ priceData.title }
 		</h1>
-		<h1 class="listingCost">{ cost }</h1>
-		<p>{ description }</p>
+		<h1 class="listingCost">{ priceData.cost }</h1>
+		<p>{ priceData.description }</p>
 	</button>
 {/if}
 
