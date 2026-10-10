@@ -42,19 +42,19 @@ nav a:hover {
 <main>
 	<h1 class="largeTitle centerText bigLines">FURTHINGS COMMISSION HUB</h1>
 
-	<a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText">
-		COMMISSIONS ARE OPEN ON VGEN ONLY (until I get verified)!<br/></a>
+	<!-- <a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText">
+		COMMISSIONS ARE OPEN!<br/></a> -->
 
-	<!-- SPECIFIC OPENINGS -->
-	<!-- <a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText underlineHover" href="https://ko-fi.com/c/f8c7b2d012">
-			CURRENT OPENING:<br/>
-			<span class="smallTitle" style="color: var(--orange)">Fursona ID Cards! [1/6 left]</span></a> -->
+	
+	<a style="margin-bottom: 8px; font-weight: bold" class="mediumTitle centerText underlineHover" href="https://vgen.co/furthings">
+		COMMISSIONS ARE OPEN!<br/>
+	<span class="smallTitle" style="color: var(--orange); font-size: 18pt"><i>(Vgen only until I get verified!)</i></span></a>
 
-      <a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
+	<a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
-	  <a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
-		  <img id="home_logo" src={base + "/images/Piper.png"} style="margin-bottom: 8px" alt="Piper Fundraiser">
-	  </a>
+	<a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
+		<img id="home_logo" src={base + "/images/Piper.png"} style="margin-bottom: 8px" alt="Piper Fundraiser">
+	</a>
 		
 	<!-- WHIMPER.PNG -->
 	<!-- <img id="home_logo" src="images/whimper.png"> -->
