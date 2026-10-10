@@ -1,5 +1,4 @@
 <script lang="ts">
-import { base } from "$app/paths";
 import Footer from "$lib/Footer.svelte";
 </script>
 
@@ -59,10 +58,10 @@ nav a:hover {
 	<!-- WHIMPER.PNG -->
 	<!-- <img id="home_logo" src="images/whimper.png"> -->
 	<nav>
-		<a href="{base}/prices">Price Sheet</a>
-		<a href="{base}/autoquote">Auto Quote</a>
-		<a href="{base}/about">About Me</a>
-		<a href="{base}/tos">Terms of Service</a>
+		<a href="/prices">Price Sheet</a>
+		<a href="/autoquote">Auto Quote</a>
+		<a href="/about">About Me</a>
+		<a href="/tos">Terms of Service</a>
 	</nav>
 </main>
 <Footer />
