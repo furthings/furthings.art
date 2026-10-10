@@ -1,3 +1,6 @@
+<script>
+	import { resolve } from "$app/paths";
+</script>
 <style>
 a {
   color: var(--text_red);
@@ -16,6 +19,6 @@ a:hover {
 	}
 }
 </style>
-<a href="/" aria-label="Home">
+<a href={resolve("/")} aria-label="Home">
 	<i class="fa-solid fa-angle-left"></i>
 </a>

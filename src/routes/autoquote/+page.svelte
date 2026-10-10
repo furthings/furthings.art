@@ -2,6 +2,7 @@
 import type { PageProps } from "./$types";
 import Footer from "$lib/Footer.svelte";
 import HomeButton from "$lib/HomeButton.svelte";
+	import { resolve } from "$app/paths";
 const { data }: PageProps = $props();
 
 let showForm: boolean = $state(true);
@@ -378,7 +379,7 @@ form .row:first-of-type label button:hover {
 		<p class="centerText">
 			Ordering from me assumes that you have read, understood, and agreed to the conditions linked below.
 		</p>
-		<a href="/tos">Terms of Service</a>
+		<a href={resolve("/tos")}>Terms of Service</a>
 	</div>
 	<p class="bodyText centerText">
 		Curious to see how much a commission may cost but don't want to do the math yourself? Fill out this form and a price estimate will be automatically generated for you!

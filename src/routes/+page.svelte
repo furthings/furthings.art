@@ -1,5 +1,6 @@
 <script lang="ts">
 import Footer from "$lib/Footer.svelte";
+import { resolve, asset } from '$app/paths';
 </script>
 
 <style>
@@ -52,16 +53,16 @@ nav a:hover {
 	<a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
 	<a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
-		<img id="home_logo" src={"/images/Piper.png"} style="margin-bottom: 8px" alt="Piper Fundraiser">
+		<img id="home_logo" src={asset("/images/Piper.png")} style="margin-bottom: 8px" alt="Piper Fundraiser">
 	</a>
 		
 	<!-- WHIMPER.PNG -->
 	<!-- <img id="home_logo" src="images/whimper.png"> -->
 	<nav>
-		<a href="/prices">Price Sheet</a>
-		<a href="/autoquote">Auto Quote</a>
-		<a href="/about">About Me</a>
-		<a href="/tos">Terms of Service</a>
+		<a href={resolve("/prices")}>Price Sheet</a>
+		<a href={resolve("/autoquote")}>Auto Quote</a>
+		<a href={resolve("/about")}>About Me</a>
+		<a href={resolve("/tos")}>Terms of Service</a>
 	</nav>
 </main>
 <Footer />
