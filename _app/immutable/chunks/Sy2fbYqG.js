@@ -1,0 +1,1 @@
+import{B as e,D as t,V as n,_ as r,c as i,h as a,o}from"./OcHuafId.js";import{o as s}from"./BIWhtS2E.js";import"./xihTtKlq.js";import"./B8_dxQmx.js";var c=r(`<a aria-label="Home" class="svelte-1m6f89s"><i class="fa-solid fa-angle-left"></i></a>`);function l(r,l){n(l,!1),o();var u=c();t(e=>i(u,`href`,e),[()=>s(`/`)]),a(r,u),e()}export{l as t};
