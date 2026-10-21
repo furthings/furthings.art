@@ -9,10 +9,10 @@ export default defineConfig({
 		enhancedImages(),
 		sveltekit({
 			adapter: adapter(),
-			paths: {
-				base:
-					process.env.NODE_ENV === "production" ? "/sveltekit-gh-pages" : "",
-			},
+			// paths: {
+			// 	base:
+			// 		process.env.NODE_ENV === "production" ? "/sveltekit-gh-pages" : "",
+			// },
 		}),
 	],
 });
