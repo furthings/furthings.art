@@ -4,7 +4,7 @@
 
 <style>
 	@import '#lib/SharedStyles.css';
-	main p {
+	p {
 		font-size: 14pt;
 	}
 	#thank-you {

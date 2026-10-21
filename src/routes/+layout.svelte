@@ -28,13 +28,7 @@ footer a img {
   fill: var(--body_white);
 }
 
-footer a i {
-  font-size: var(--medium_title_size);
-  margin: 0;
-  padding: 0;
-}
-
-footer a:hover i, footer a:hover img {
+footer a:hover img {
   filter: brightness(200%);
   transition-duration: .1s;
   transform: scale(1.5);
@@ -45,9 +39,6 @@ footer a:hover i, footer a:hover img {
 		grid-template-rows: 1fr 1fr;
 		grid-template-columns: repeat(6, 1fr);
 		row-gap: 8px;
-	}
-	footer a i {
-		font-size: var(--small_title_size);
 	}
 	footer a img {
 		width: calc(var(--main_width) / 13);
