@@ -51,7 +51,7 @@ nav a:hover {
 
 	<a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
-	<img id="home_logo" src={asset("images/whimper.png")} alt="Rowan whimpering">
+	<enhanced:img id="home_logo" src={asset("images/whimper.png?enhanced")} alt="Rowan whimpering"/>
 	<nav>
 		<a href={resolve("/prices")}>Price Sheet</a>
 		<a href={resolve("/autoquote")}>Auto Quote</a>

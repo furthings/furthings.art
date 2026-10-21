@@ -101,10 +101,10 @@
 		<p class="listingDescription">{ priceData.description }</p>
 		<!-- EXAMPLE IMAGES -->
 		<div>
-			{#each images as image, i}
-				<img
-					src={ image.default }
-					alt={"Example of Fade's " + image.title}
+			{#each Object.entries(images) as [_path, module], i}
+				<enhanced:img
+					src={ module.default }
+					alt={"Example of Fade's " + module.title}
 					onclick={() => viewer.view(i)}
 				/>
 			{/each}

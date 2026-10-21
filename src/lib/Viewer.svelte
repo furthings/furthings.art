@@ -11,6 +11,8 @@
 	// display the viewer
 	// imageIndex determines what the currentImage will start as
 	export function view(imageIndex: number): void {
+		console.log(IMAGES[imageIndex]);
+		console.log(IMAGES[imageIndex].default);
 		running = true;
 		current = imageIndex;
 	}
@@ -47,8 +49,10 @@
 }
 .viewer .currentImage {
 	object-fit: contain;
-	max-width: 100%;
-	max-height: 95%;
+	max-width: 80vw;
+	max-height: 80vh;
+	width: auto;
+	height: auto;
 	margin: 2.5% 0;
 	padding: 0;
 }
@@ -72,14 +76,14 @@
 	grid-column: 1 / span all;
 	justify-content: center;
 }
-.viewerImages img {
+.viewerImages * {
 	object-fit: fit;
 	width: 95%;
 	max-height: 128px;
 	margin: 0;
 	padding: 0;
 }
-.viewerImages img:hover {
+.viewerImages *:hover {
 	cursor: pointer;
 	scale: 1.2;
 }
@@ -91,14 +95,14 @@
 {#if running}
 	<div id={uid} class="viewer" onclick={clickHandler}>
 		<button onclick={ prev }><FontAwesomeIcon icon={left} /></button>
-		<img class="currentImage" src={IMAGES[current].default} alt={ "Example" }/>
-		<button onclick={ next }><FontAwesomeIcon icon={right} /><i class="fa-solid fa-chevron-right"></i></button>
+		<enhanced:img class="currentImage" src={IMAGES[current].default} alt={ "Example" }/>
+		<button onclick={ next }><FontAwesomeIcon icon={right} /></button>
 		<div class="viewerImages">
-			{#each IMAGES as example, i}
+			{#each Object.entries(IMAGES) as [_path, module], i}
 				{#if current === i}
-					<img class="active" src={ example.default } alt={"Example"} onclick={() => view(i)}/>
+					<enhanced:img class="active" src={ module.default } alt={"Example"} onclick={() => view(i)}/>
 				{:else}
-					<img src={ example.default } alt={"Example"} onclick={() => view(i)}/>
+					<enhanced:img src={ module.default } alt={"Example"} onclick={() => view(i)}/>
 				{/if}
 			{/each}
 		</div>

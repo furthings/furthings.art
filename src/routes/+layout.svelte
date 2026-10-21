@@ -54,54 +54,54 @@ footer a:hover img {
 <footer>
 	<!-- email -->
 	<a href="mailto:furthingsart@gmail.com" aria-label="Fade's Email">
-		<img src={asset("images/footer/envelope.svg")} alt="Email logo"/>
+		<enhanced:img src={asset("images/footer/envelope.svg?enhanced")} alt="Email logo"/>
 	</a>
 	<!-- bluesky -->
 	<a href="https://bsky.app/profile/furthings.art" aria-label="Fade's Bluesky">
-		<img src={asset("images/footer/bsky.svg")} alt="Bluesky logo"/>
+		<enhanced:img src={asset("images/footer/bsky.svg?enhanced")} alt="Bluesky logo"/>
 	</a>
 	<!-- fur affinity -->
 	<a href="https://www.furaffinity.net/user/furthings#" aria-label="Fade's Furaffinity">
-		<img src={asset("images/footer/fa-logo.svg")} alt="Furaffinity logo"/>
+		<enhanced:img src={asset("images/footer/fa-logo.svg?enhanced")} alt="Furaffinity logo"/>
 	</a>
 	<!-- instagram -->
 	<a href="https://www.instagram.com/furthingsart/" aria-label="Fade's Instagram">
-		<img src={asset("images/footer/instagram.svg")} alt="Instagram logo"/>
+		<enhanced:img src={asset("images/footer/instagram.svg?enhanced")} alt="Instagram logo"/>
 	</a>
 	<!-- tumblr? go here -->
 	<!-- toyhouse -->
 	<a href="https://toyhou.se/furthings" aria-label="Fade's Toyhouse">
-		<img src={asset("images/footer/toyhouse_icon.svg")} alt="Toyhouse logo"/>
+		<enhanced:img src={asset("images/footer/toyhouse_icon.svg?enhanced")} alt="Toyhouse logo"/>
 	</a>
 	<!-- youtube -->
 	<a href="https://www.youtube.com/@furthings" aria-label="Fade's Youtube">
-		<img src={asset("images/footer/youtube.svg")} alt="Youtube logo"/>
+		<enhanced:img src={asset("images/footer/youtube.svg?enhanced")} alt="Youtube logo"/>
 	</a>
 	<!-- paypal -->
 	<a href="https://paypal.me/Avrey" aria-label="Fade's Paypal">
-		<img src={asset("images/footer/paypal.svg")} alt="Paypal logo"/>
+		<enhanced:img src={asset("images/footer/paypal.svg?enhanced")} alt="Paypal logo"/>
 	</a>
 	<!-- kofi -->
 	<a href="https://ko-fi.com/furthings" aria-label="Fade's Ko-fi">
-		<img src={asset("images/footer/kofi-logo.svg")} alt="Ko-fi logo"/>
+		<enhanced:img src={asset("images/footer/kofi-logo.svg?enhanced")} alt="Ko-fi logo"/>
 	</a>
 	<a href="https://vgen.co/furthings" aria-label="Fade's Vgen">
-		<img src={asset("images/footer/vgen-logo.svg")} alt="Vgen logo"/>
+		<enhanced:img src={asset("images/footer/vgen-logo.svg?enhanced")} alt="Vgen logo"/>
 	</a>
 	<!-- etsy -->
 	<a class="etsy-logo" href="https://www.etsy.com/shop/furthingsart" aria-label="Fade's Etsy">
-		<img src={asset("images/footer/etsy.svg")} alt="Etsy logo"/>
+		<enhanced:img src={asset("images/footer/etsy.svg?enhanced")} alt="Etsy logo"/>
 	</a>
 	<!-- discord -->
 	<a href={resolve("/about/discord")} aria-label="Fade's Discord Server">
-		<img src={asset("images/footer/discord.svg")} alt="Discord logo"/>
+		<enhanced:img src={asset("images/footer/discord.svg?enhanced")} alt="Discord logo"/>
 	</a>
 	<!-- telegram -->
 	<a href={resolve("/about")} aria-label="Fade's Telegram">
-		<img src={asset("images/footer/telegram.svg")} alt="Telegram logo"/>
+		<enhanced:img src={asset("images/footer/telegram.svg?enhanced")} alt="Telegram logo"/>
 	</a>
 	<!-- artfight -->
 	<a href="https://artfight.net/~furthings" aria-label="Fade's Artfight">
-		<img src={asset("images/footer/af-logo.svg")} alt="Artfight logo"/>
+		<enhanced:img src={asset("images/footer/af-logo.svg?enhanced")} alt="Artfight logo"/>
 	</a>
 </footer>
