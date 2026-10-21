@@ -1,14 +1,14 @@
 <script lang="ts">
 import type { PageProps } from "./$types";
 const { data }: PageProps = $props();
-import Footer from "$lib/Footer.svelte";
-import Price from "$lib/Price.svelte";
-import HomeButton from "$lib/HomeButton.svelte";
+import Footer from "#lib/Footer.svelte";
+import Price from "#lib/Price.svelte";
+import HomeButton from "#lib/HomeButton.svelte";
 	import { resolve } from "$app/paths";
 </script>
 
 <style>
-@import '$lib/SharedStyles.css';
+@import '#lib/SharedStyles.css';
 #tos-warning {
 	background-color: var(--background);
 	padding: 8px 0;

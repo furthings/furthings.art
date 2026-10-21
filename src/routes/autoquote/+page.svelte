@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { PageProps } from "./$types";
-import Footer from "$lib/Footer.svelte";
-import HomeButton from "$lib/HomeButton.svelte";
+import Footer from "#lib/Footer.svelte";
+import HomeButton from "#lib/HomeButton.svelte";
 	import { resolve } from "$app/paths";
 const { data }: PageProps = $props();
 
@@ -201,7 +201,7 @@ function addCharacter() {
 </script>
 
 <style>
-@import '$lib/SharedStyles.css';
+@import '#lib/SharedStyles.css';
 #tos-warning {
 	background-color: var(--background);
 	padding: 8px 0;

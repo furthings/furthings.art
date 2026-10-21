@@ -13,7 +13,7 @@
 	let viewer: Viewer;
 	onMount(() => {
 		const EXAMPLES = import.meta.glob(
-			"$lib/images/examples/*.{png,gif}", {
+			"#lib/images/examples/*.{png,gif}", {
 				eager: true,
 				query: { enhanced: true }
 			}

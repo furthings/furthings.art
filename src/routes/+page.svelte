@@ -1,10 +1,10 @@
 <script lang="ts">
-import Footer from "$lib/Footer.svelte";
-import { resolve, asset } from '$app/paths';
+import Footer from "#lib/Footer.svelte";
+import { asset, resolve } from '$app/paths';
 </script>
 
 <style>
-@import '$lib/SharedStyles.css';
+@import '#lib/SharedStyles.css';
 #home_logo {
   width: 40%;
   margin: 12px 30% -21px 30%;
@@ -52,12 +52,7 @@ nav a:hover {
 
 	<a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
-	<a href="https://bsky.app/profile/furthings.art/post/3mg4l3ts6ys2l" aria-label="Piper fundraiser">
-		<img id="home_logo" src={asset("/images/Piper.png")} style="margin-bottom: 8px" alt="Piper Fundraiser">
-	</a>
-		
-	<!-- WHIMPER.PNG -->
-	<!-- <img id="home_logo" src="images/whimper.png"> -->
+	<img id="home_logo" src={asset("images/whimper.png")} alt="Rowan whimpering">
 	<nav>
 		<a href={resolve("/prices")}>Price Sheet</a>
 		<a href={resolve("/autoquote")}>Auto Quote</a>

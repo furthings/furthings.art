@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { asset } from "$app/paths";
-	import Footer from "$lib/Footer.svelte";
-	import HomeButton from "$lib/HomeButton.svelte";
+	import Footer from "#lib/Footer.svelte";
+	import HomeButton from "#lib/HomeButton.svelte";
 </script>
 
 <style>
-	@import '$lib/SharedStyles.css';
+	@import '#lib/SharedStyles.css';
 	img {
 		display: block;
 		height: 256px;

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Footer from "$lib/Footer.svelte";
-	import HomeButton from "$lib/HomeButton.svelte";
+	import Footer from "#lib/Footer.svelte";
+	import HomeButton from "#lib/HomeButton.svelte";
 </script>
 
 <style>
-	@import '$lib/SharedStyles.css';
+	@import '#lib/SharedStyles.css';
 	main p {
 		font-size: 14pt;
 	}
