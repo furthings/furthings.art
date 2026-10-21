@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Viewer from "./Viewer.svelte";
 	import { onMount } from "svelte";
-	let { priceData }: {
+	import type { Picture } from '@sveltejs/enhanced-img';
+	let { title, cost, description, examples }: {
 		title: string,
 		cost: string,
 		description: string,
@@ -9,7 +10,7 @@
 	} = $props();
 	const uid = $props.id();
 	let isDropped = $state(false);
-	let images: HTMLImageElement[] = [];
+	let images: Array<Record<string, Picture>> = [];
 	let viewer: Viewer;
 	onMount(() => {
 		const EXAMPLES = import.meta.glob(
@@ -18,11 +19,11 @@
 				query: { enhanced: true }
 			}
 		);
-		priceData.examples.forEach((filename: string) => {
+		examples.forEach((filename: string) => {
 			const pathPrefix = "/src/lib/images/examples/";
-			const img = EXAMPLES[pathPrefix + filename] as HTMLImageElement;
+			const img = EXAMPLES[pathPrefix + filename] as {Module: any};
 			images.push(img);
-		})
+		});
 	});
 </script>
 
@@ -95,10 +96,10 @@
 	<button type="button" id={uid} class="active listing" onclick={() => isDropped = !isDropped}>
 		<h1 class="listingTitle">
 			<i class="fa-solid fa-caret-down"></i>
-			{ priceData.title }
+			{ title }
 		</h1>
-		<h1 class="listingCost">{priceData.cost}</h1>
-		<p class="listingDescription">{ priceData.description }</p>
+		<h1 class="listingCost">{ cost }</h1>
+		<p class="listingDescription">{ description }</p>
 		<!-- EXAMPLE IMAGES -->
 		<div>
 			{#each Object.entries(images) as [_path, module], i}
@@ -114,10 +115,10 @@
 	<button type="button" id={uid} class="listing" onclick={() => isDropped = !isDropped}>
 		<h1>
 			<i class="fa-solid fa-caret-right"></i>
-			{ priceData.title }
+			{ title }
 		</h1>
-		<h1 class="listingCost">{ priceData.cost }</h1>
-		<p>{ priceData.description }</p>
+		<h1 class="listingCost">{ cost }</h1>
+		<p>{ description }</p>
 	</button>
 {/if}
 

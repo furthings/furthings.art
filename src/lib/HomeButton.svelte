@@ -1,10 +1,9 @@
 <script>
-	import { resolve } from "$app/paths";
   import { library } from '@fortawesome/fontawesome-svg-core';
-  import { faAngleLeft as angleLeft } from '@fortawesome/free-solid-svg-icons';
+  import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
   import { FontAwesomeIcon } from 'fontawesome-svelte';
 
-  library.add(angleLeft);
+  library.add(faAngleLeft);
 </script>
 <style>
 a {
@@ -24,7 +23,7 @@ a:hover {
 	}
 }
 </style>
-<a href={resolve("/")} aria-label="Home">
-  <FontAwesomeIcon icon={angleLeft} />
+<a href="/" aria-label="Home">
+  <FontAwesomeIcon icon={faAngleLeft} />
 	<i class="fa-solid fa-angle-left"></i>
 </a>

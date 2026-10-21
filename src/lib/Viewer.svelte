@@ -1,18 +1,16 @@
 <script lang="ts">
+	import type { Picture } from '@sveltejs/enhanced-img';
 	import { library } from '@fortawesome/fontawesome-svg-core';
-	import { faChevronLeft as left } from '@fortawesome/free-solid-svg-icons';
-	import { faChevronRight as right } from '@fortawesome/free-solid-svg-icons';
+	import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 	import { FontAwesomeIcon } from 'fontawesome-svelte';
-	library.add(left, right);
-	const { IMAGES }: { IMAGES: Array<string> } = $props();
+	library.add(faChevronLeft, faChevronRight);
+	const { IMAGES }: { IMAGES: Array<Record<string, Picture>> } = $props();
 	const uid = $props.id();
 	let running = $state(false);
 	let current = $state(0); // index to determine the 'currentImage'
 	// display the viewer
 	// imageIndex determines what the currentImage will start as
 	export function view(imageIndex: number): void {
-		console.log(IMAGES[imageIndex]);
-		console.log(IMAGES[imageIndex].default);
 		running = true;
 		current = imageIndex;
 	}
@@ -94,9 +92,9 @@
 
 {#if running}
 	<div id={uid} class="viewer" onclick={clickHandler}>
-		<button onclick={ prev }><FontAwesomeIcon icon={left} /></button>
+		<button onclick={ prev }><FontAwesomeIcon icon={faChevronLeft} /></button>
 		<enhanced:img class="currentImage" src={IMAGES[current].default} alt={ "Example" }/>
-		<button onclick={ next }><FontAwesomeIcon icon={right} /></button>
+		<button onclick={ next }><FontAwesomeIcon icon={faChevronRight} /></button>
 		<div class="viewerImages">
 			{#each Object.entries(IMAGES) as [_path, module], i}
 				{#if current === i}

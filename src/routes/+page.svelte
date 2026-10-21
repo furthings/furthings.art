@@ -1,11 +1,11 @@
 <script lang="ts">
-import { asset, resolve } from '$app/paths';
 </script>
 
 <style>
 @import '#lib/SharedStyles.css';
 #home_logo {
   width: 40%;
+  height: auto;
   margin: 12px 30% -21px 30%;
   position: relative;
 }
@@ -51,11 +51,11 @@ nav a:hover {
 
 	<a class="smallTitle centerText bigLines underlineHover" href="https://trello.com/b/GwqS2tYQ/Fades-Queue">CLICK TO VISIT MY QUEUE ></a>
 		
-	<enhanced:img id="home_logo" src={asset("images/whimper.png?enhanced")} alt="Rowan whimpering"/>
+	<enhanced:img id="home_logo" src="/static/images/whimper.png" alt="Rowan whimpering"/>
 	<nav>
-		<a href={resolve("/prices")}>Price Sheet</a>
-		<a href={resolve("/autoquote")}>Auto Quote</a>
-		<a href={resolve("/about")}>About Me</a>
-		<a href={resolve("/tos")}>Terms of Service</a>
+		<a href="/prices">Price Sheet</a>
+		<a href="/autoquote">Auto Quote</a>
+		<a href="/about">About Me</a>
+		<a href="/tos">Terms of Service</a>
 	</nav>
 </main>
