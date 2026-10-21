@@ -68,7 +68,7 @@
 	column-gap: 8px;
 	row-gap: 8px;
 }
-.listing div img {
+.listing div enhanced\:img {
 	object-fit: contain;
 	max-height: 200px;
 	max-width: 100%;
@@ -80,7 +80,7 @@
 .listing:hover h1, .listing:hover .listingCost {
 	color: var(--text_red);
 }
-.listing div img:hover {
+.listing div enhanced\:img:hover {
 	scale: 1.2;
 }
 .active {

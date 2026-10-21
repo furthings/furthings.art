@@ -76,14 +76,14 @@
 	grid-column: 1 / span all;
 	justify-content: center;
 }
-.viewerImages * {
+.viewerImages enhanced\:img {
 	object-fit: fit;
 	width: 95%;
 	max-height: 128px;
 	margin: 0;
 	padding: 0;
 }
-.viewerImages *:hover {
+.viewerImages enhanced\:img:hover {
 	cursor: pointer;
 	scale: 1.2;
 }
