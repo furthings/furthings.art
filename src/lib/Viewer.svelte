@@ -1,4 +1,9 @@
 <script lang="ts">
+	import { library } from '@fortawesome/fontawesome-svg-core';
+	import { faChevronLeft as left } from '@fortawesome/free-solid-svg-icons';
+	import { faChevronRight as right } from '@fortawesome/free-solid-svg-icons';
+	import { FontAwesomeIcon } from 'fontawesome-svelte';
+	library.add(left, right);
 	const { IMAGES }: { IMAGES: Array<string> } = $props();
 	const uid = $props.id();
 	let running = $state(false);
@@ -85,9 +90,9 @@
 
 {#if running}
 	<div id={uid} class="viewer" onclick={clickHandler}>
-		<button onclick={ prev }><i class="fa-solid fa-chevron-left"></i></button>
+		<button onclick={ prev }><FontAwesomeIcon icon={left} /></button>
 		<img class="currentImage" src={IMAGES[current].default} alt={ "Example" }/>
-		<button onclick={ next }><i class="fa-solid fa-chevron-right"></i></button>
+		<button onclick={ next }><FontAwesomeIcon icon={right} /><i class="fa-solid fa-chevron-right"></i></button>
 		<div class="viewerImages">
 			{#each IMAGES as example, i}
 				{#if current === i}

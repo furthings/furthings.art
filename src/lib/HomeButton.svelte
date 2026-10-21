@@ -2,7 +2,7 @@
 	import { resolve } from "$app/paths";
   import { library } from '@fortawesome/fontawesome-svg-core';
   import { faAngleLeft as angleLeft } from '@fortawesome/free-solid-svg-icons';
-  import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText } from 'fontawesome-svelte';
+  import { FontAwesomeIcon } from 'fontawesome-svelte';
 
   library.add(angleLeft);
 </script>
