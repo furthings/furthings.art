@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '@fortawesome/fontawesome-free/css/all.min.css';
-	import { asset, resolve } from '$app/paths';
+    import { asset, resolve } from '$app/paths';
+    let { children } = $props();
 </script>
 
 <style>
@@ -55,6 +55,11 @@ footer a:hover i, footer a:hover img {
 }
 </style>
 
+<svelte:head>
+</svelte:head>
+<main>
+    {@render children()}
+</main>
 <footer>
 	<!-- email -->
 	<a href="mailto:furthingsart@gmail.com" aria-label="Fade's Email">
@@ -62,7 +67,7 @@ footer a:hover i, footer a:hover img {
 	</a>
 	<!-- bluesky -->
 	<a href="https://bsky.app/profile/furthings.art" aria-label="Fade's Bluesky">
-		<i class="fa-brands fa-bluesky"></i>
+		<img src={asset("images/footer/bsky.svg")} alt="Bluesky logo"/>
 	</a>
 	<!-- fur affinity -->
 	<a href="https://www.furaffinity.net/user/furthings#" aria-label="Fade's Furaffinity">

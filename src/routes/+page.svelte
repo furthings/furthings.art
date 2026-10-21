@@ -1,5 +1,4 @@
 <script lang="ts">
-import Footer from "#lib/Footer.svelte";
 import { asset, resolve } from '$app/paths';
 </script>
 
@@ -60,4 +59,3 @@ nav a:hover {
 		<a href={resolve("/tos")}>Terms of Service</a>
 	</nav>
 </main>
-<Footer />

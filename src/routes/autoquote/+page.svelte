@@ -1,7 +1,6 @@
 <script lang="ts">
-import type { PageProps } from "./$types";
-import Footer from "#lib/Footer.svelte";
-import HomeButton from "#lib/HomeButton.svelte";
+	import type { PageProps } from "./$types";
+	import HomeButton from "#lib/HomeButton.svelte";
 	import { resolve } from "$app/paths";
 const { data }: PageProps = $props();
 
@@ -368,64 +367,48 @@ form .row:first-of-type label button:hover {
 }
 </style>
 
-<main>
-	<HomeButton />
-	<h1 class="largeTitle centerText">AUTO QUOTE</h1>
-	<!-- TOS WARNING -->
-	<div id="tos-warning">
-		<p style="color: var(--orange); font-weight: bold;" class="centerText">
-			<i class="fa-solid fa-triangle-exclamation"></i>&nbsp; BEFORE YOU BUY &nbsp;<i class="fa-solid fa-triangle-exclamation"></i>
-		</p>
-		<p class="centerText">
-			Ordering from me assumes that you have read, understood, and agreed to the conditions linked below.
-		</p>
-		<a href={resolve("/tos")}>Terms of Service</a>
-	</div>
-	<p class="bodyText centerText">
-		Curious to see how much a commission may cost but don't want to do the math yourself? Fill out this form and a price estimate will be automatically generated for you!
+<HomeButton />
+<h1 class="largeTitle centerText">AUTO QUOTE</h1>
+<!-- TOS WARNING -->
+<div id="tos-warning">
+	<p style="color: var(--orange); font-weight: bold;" class="centerText">
+		<i class="fa-solid fa-triangle-exclamation"></i>&nbsp; BEFORE YOU BUY &nbsp;<i class="fa-solid fa-triangle-exclamation"></i>
 	</p>
-	<form id="form" onsubmit={processForm}>
-		<!--
-			There is a variable number of Framing inputs, one for each character
-			Create up to FIRST_ROW_CHAR_MAX for the first row,
-			and up to OTHER_ROWS_CHAR_MAX for the other rows,
-			but no more than the current number of characters
-		-->
-		<!-- The first row -->
-		<div class="row">
-			<label for="framing">Framing:<br/>
-			<button type="button" onclick={addCharacter}>+ Add Character?</button>
-			</label>
-			{#each {length: characterCount <= FIRST_ROW_CHAR_MAX ? characterCount : FIRST_ROW_CHAR_MAX}}
-				<select name="framing">
-					<option value="headshot">Headshot</option>
-					<option value="bust">Bust</option>
-					<option value="halfbody">Halfbody</option>
-					<option value="thighup">Thighup</option>
-					<option value="fullbody">Fullbody</option>
-				</select>
-			{/each}
-		</div>
-		<!-- Completed Rows -->
-		{#if completeRowCount > 0}
-			{#each {length: completeRowCount}}
-				<div class="row">
-					{#each {length: OTHER_ROWS_CHAR_MAX}}
-						<select name="framing">
-							<option value="headshot">Headshot</option>
-							<option value="bust">Bust</option>
-							<option value="halfbody">Halfbody</option>
-							<option value="thighup">Thighup</option>
-							<option value="fullbody">Fullbody</option>
-						</select>
-					{/each}
-				</div>
-			{/each}
-		{/if}
-		<!-- The incomplete row -->
-		{#if incompleteRowLength > 0}
+	<p class="centerText">
+		Ordering from me assumes that you have read, understood, and agreed to the conditions linked below.
+	</p>
+	<a href={resolve("/tos")}>Terms of Service</a>
+</div>
+<p class="bodyText centerText">
+	Curious to see how much a commission may cost but don't want to do the math yourself? Fill out this form and a price estimate will be automatically generated for you!
+</p>
+<form id="form" onsubmit={processForm}>
+	<!--
+		There is a variable number of Framing inputs, one for each character
+		Create up to FIRST_ROW_CHAR_MAX for the first row,
+		and up to OTHER_ROWS_CHAR_MAX for the other rows,
+		but no more than the current number of characters
+	-->
+	<!-- The first row -->
+	<div class="row">
+		<label for="framing">Framing:<br/>
+		<button type="button" onclick={addCharacter}>+ Add Character?</button>
+		</label>
+		{#each {length: characterCount <= FIRST_ROW_CHAR_MAX ? characterCount : FIRST_ROW_CHAR_MAX}}
+			<select name="framing">
+				<option value="headshot">Headshot</option>
+				<option value="bust">Bust</option>
+				<option value="halfbody">Halfbody</option>
+				<option value="thighup">Thighup</option>
+				<option value="fullbody">Fullbody</option>
+			</select>
+		{/each}
+	</div>
+	<!-- Completed Rows -->
+	{#if completeRowCount > 0}
+		{#each {length: completeRowCount}}
 			<div class="row">
-				{#each {length: incompleteRowLength}}
+				{#each {length: OTHER_ROWS_CHAR_MAX}}
 					<select name="framing">
 						<option value="headshot">Headshot</option>
 						<option value="bust">Bust</option>
@@ -435,41 +418,54 @@ form .row:first-of-type label button:hover {
 					</select>
 				{/each}
 			</div>
-		{/if}
+		{/each}
+	{/if}
+	<!-- The incomplete row -->
+	{#if incompleteRowLength > 0}
 		<div class="row">
-			<label for="background">Background: </label>
-			<select name="background">
-				<option value="none">None</option>
-				<option value="abstract">Abstract</option>
-				<option value="scenic">Scenic</option>
-			</select>
-			<label for="props">Props: </label>
-			<input name="props" value="0" type="number" min="0" max="9">
+			{#each {length: incompleteRowLength}}
+				<select name="framing">
+					<option value="headshot">Headshot</option>
+					<option value="bust">Bust</option>
+					<option value="halfbody">Halfbody</option>
+					<option value="thighup">Thighup</option>
+					<option value="fullbody">Fullbody</option>
+				</select>
+			{/each}
 		</div>
-		<div class="row">
-			<label for="shading">Shading: </label>
-			<input name="shading" type="checkbox">
-			<label for="noColor">No Color: </label>
-			<input name="noColor" type="checkbox">
-		</div>
-		<textarea name="details" rows="2" cols="50" placeholder="Write additional prompt info here if needed..."></textarea>
-		<input type="submit" value="Results   >">
-	</form>
-	<div id="quote">
-		<div id="breakdown">
-			<h1 class="mediumTitle">QUOTE OVERVIEW:</h1>
-			<p>
-				{#each currentQuote.breakdown as item}
-					-- {item}<br/>
-				{/each}
-			</p>
-			<h2 class="mediumTitle">{currentQuote.total}</h2>
-			<p><strong>Extra Details:</strong> {currentQuote.details}</p>
-		</div>
-		<div id="controls">
-			<button onclick={() => showForm = true}><i class="fa-solid fa-angle-left"></i>Go Back</button>
-			<button onclick={copyQuote}>Copy to Clipboard</button>
-		</div>
+	{/if}
+	<div class="row">
+		<label for="background">Background: </label>
+		<select name="background">
+			<option value="none">None</option>
+			<option value="abstract">Abstract</option>
+			<option value="scenic">Scenic</option>
+		</select>
+		<label for="props">Props: </label>
+		<input name="props" value="0" type="number" min="0" max="9">
 	</div>
-</main>
-<Footer />
+	<div class="row">
+		<label for="shading">Shading: </label>
+		<input name="shading" type="checkbox">
+		<label for="noColor">No Color: </label>
+		<input name="noColor" type="checkbox">
+	</div>
+	<textarea name="details" rows="2" cols="50" placeholder="Write additional prompt info here if needed..."></textarea>
+	<input type="submit" value="Results   >">
+</form>
+<div id="quote">
+	<div id="breakdown">
+		<h1 class="mediumTitle">QUOTE OVERVIEW:</h1>
+		<p>
+			{#each currentQuote.breakdown as item}
+				-- {item}<br/>
+			{/each}
+		</p>
+		<h2 class="mediumTitle">{currentQuote.total}</h2>
+		<p><strong>Extra Details:</strong> {currentQuote.details}</p>
+	</div>
+	<div id="controls">
+		<button onclick={() => showForm = true}><i class="fa-solid fa-angle-left"></i>Go Back</button>
+		<button onclick={copyQuote}>Copy to Clipboard</button>
+	</div>
+</div>
